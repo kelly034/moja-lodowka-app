@@ -12,7 +12,6 @@ class RecipeModel extends Recipe {
     required super.imageUrl,
   });
 
-  /// Tworzy gotowy obiekt (będący encją Recipe) z surowych wierszy bazy Drift
   factory RecipeModel.fromDrift(
       RecipeTableData recipeData,
       List<RecipeIngredientsTableData> ingredientsData,
