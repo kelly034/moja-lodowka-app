@@ -6,6 +6,7 @@ class RecipeModel extends Recipe {
     required super.id,
     required super.name,
     required super.ingredientNames,
+    required super.ingredientValues,
     required super.macroValues,
     required super.diets,
     required super.imageUrl,
@@ -21,6 +22,7 @@ class RecipeModel extends Recipe {
       id: recipeData.id,
       name: recipeData.name,
       ingredientNames: ingredientsData.map((ing) => ing.name).toList(),
+      ingredientValues: ingredientsData.map((ing) => ing.value).toList(),
       macroValues: [
         recipeData.calories,
         recipeData.carbohydrates,

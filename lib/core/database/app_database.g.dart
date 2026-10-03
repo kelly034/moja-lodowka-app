@@ -640,8 +640,17 @@ class $RecipeIngredientsTableTable extends RecipeIngredientsTable
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _valueMeta = const VerificationMeta('value');
   @override
-  List<GeneratedColumn> get $columns => [id, recipeId, name];
+  late final GeneratedColumn<int> value = GeneratedColumn<int>(
+    'value',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, recipeId, name, value];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -673,6 +682,14 @@ class $RecipeIngredientsTableTable extends RecipeIngredientsTable
     } else if (isInserting) {
       context.missing(_nameMeta);
     }
+    if (data.containsKey('value')) {
+      context.handle(
+        _valueMeta,
+        value.isAcceptableOrUnknown(data['value']!, _valueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueMeta);
+    }
     return context;
   }
 
@@ -697,6 +714,10 @@ class $RecipeIngredientsTableTable extends RecipeIngredientsTable
         DriftSqlType.string,
         data['${effectivePrefix}name'],
       )!,
+      value: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}value'],
+      )!,
     );
   }
 
@@ -711,10 +732,12 @@ class RecipeIngredientsTableData extends DataClass
   final int id;
   final int recipeId;
   final String name;
+  final int value;
   const RecipeIngredientsTableData({
     required this.id,
     required this.recipeId,
     required this.name,
+    required this.value,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -722,6 +745,7 @@ class RecipeIngredientsTableData extends DataClass
     map['id'] = Variable<int>(id);
     map['recipe_id'] = Variable<int>(recipeId);
     map['name'] = Variable<String>(name);
+    map['value'] = Variable<int>(value);
     return map;
   }
 
@@ -730,6 +754,7 @@ class RecipeIngredientsTableData extends DataClass
       id: Value(id),
       recipeId: Value(recipeId),
       name: Value(name),
+      value: Value(value),
     );
   }
 
@@ -742,6 +767,7 @@ class RecipeIngredientsTableData extends DataClass
       id: serializer.fromJson<int>(json['id']),
       recipeId: serializer.fromJson<int>(json['recipeId']),
       name: serializer.fromJson<String>(json['name']),
+      value: serializer.fromJson<int>(json['value']),
     );
   }
   @override
@@ -751,15 +777,21 @@ class RecipeIngredientsTableData extends DataClass
       'id': serializer.toJson<int>(id),
       'recipeId': serializer.toJson<int>(recipeId),
       'name': serializer.toJson<String>(name),
+      'value': serializer.toJson<int>(value),
     };
   }
 
-  RecipeIngredientsTableData copyWith({int? id, int? recipeId, String? name}) =>
-      RecipeIngredientsTableData(
-        id: id ?? this.id,
-        recipeId: recipeId ?? this.recipeId,
-        name: name ?? this.name,
-      );
+  RecipeIngredientsTableData copyWith({
+    int? id,
+    int? recipeId,
+    String? name,
+    int? value,
+  }) => RecipeIngredientsTableData(
+    id: id ?? this.id,
+    recipeId: recipeId ?? this.recipeId,
+    name: name ?? this.name,
+    value: value ?? this.value,
+  );
   RecipeIngredientsTableData copyWithCompanion(
     RecipeIngredientsTableCompanion data,
   ) {
@@ -767,6 +799,7 @@ class RecipeIngredientsTableData extends DataClass
       id: data.id.present ? data.id.value : this.id,
       recipeId: data.recipeId.present ? data.recipeId.value : this.recipeId,
       name: data.name.present ? data.name.value : this.name,
+      value: data.value.present ? data.value.value : this.value,
     );
   }
 
@@ -775,20 +808,22 @@ class RecipeIngredientsTableData extends DataClass
     return (StringBuffer('RecipeIngredientsTableData(')
           ..write('id: $id, ')
           ..write('recipeId: $recipeId, ')
-          ..write('name: $name')
+          ..write('name: $name, ')
+          ..write('value: $value')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, recipeId, name);
+  int get hashCode => Object.hash(id, recipeId, name, value);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is RecipeIngredientsTableData &&
           other.id == this.id &&
           other.recipeId == this.recipeId &&
-          other.name == this.name);
+          other.name == this.name &&
+          other.value == this.value);
 }
 
 class RecipeIngredientsTableCompanion
@@ -796,26 +831,32 @@ class RecipeIngredientsTableCompanion
   final Value<int> id;
   final Value<int> recipeId;
   final Value<String> name;
+  final Value<int> value;
   const RecipeIngredientsTableCompanion({
     this.id = const Value.absent(),
     this.recipeId = const Value.absent(),
     this.name = const Value.absent(),
+    this.value = const Value.absent(),
   });
   RecipeIngredientsTableCompanion.insert({
     this.id = const Value.absent(),
     required int recipeId,
     required String name,
+    required int value,
   }) : recipeId = Value(recipeId),
-       name = Value(name);
+       name = Value(name),
+       value = Value(value);
   static Insertable<RecipeIngredientsTableData> custom({
     Expression<int>? id,
     Expression<int>? recipeId,
     Expression<String>? name,
+    Expression<int>? value,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (recipeId != null) 'recipe_id': recipeId,
       if (name != null) 'name': name,
+      if (value != null) 'value': value,
     });
   }
 
@@ -823,11 +864,13 @@ class RecipeIngredientsTableCompanion
     Value<int>? id,
     Value<int>? recipeId,
     Value<String>? name,
+    Value<int>? value,
   }) {
     return RecipeIngredientsTableCompanion(
       id: id ?? this.id,
       recipeId: recipeId ?? this.recipeId,
       name: name ?? this.name,
+      value: value ?? this.value,
     );
   }
 
@@ -843,6 +886,9 @@ class RecipeIngredientsTableCompanion
     if (name.present) {
       map['name'] = Variable<String>(name.value);
     }
+    if (value.present) {
+      map['value'] = Variable<int>(value.value);
+    }
     return map;
   }
 
@@ -851,7 +897,8 @@ class RecipeIngredientsTableCompanion
     return (StringBuffer('RecipeIngredientsTableCompanion(')
           ..write('id: $id, ')
           ..write('recipeId: $recipeId, ')
-          ..write('name: $name')
+          ..write('name: $name, ')
+          ..write('value: $value')
           ..write(')'))
         .toString();
   }
@@ -1642,12 +1689,14 @@ typedef $$RecipeIngredientsTableTableCreateCompanionBuilder =
       Value<int> id,
       required int recipeId,
       required String name,
+      required int value,
     });
 typedef $$RecipeIngredientsTableTableUpdateCompanionBuilder =
     RecipeIngredientsTableCompanion Function({
       Value<int> id,
       Value<int> recipeId,
       Value<String> name,
+      Value<int> value,
     });
 
 final class $$RecipeIngredientsTableTableReferences
@@ -1700,6 +1749,11 @@ class $$RecipeIngredientsTableTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
+  ColumnFilters<int> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnFilters(column),
+  );
+
   $$RecipeTableTableFilterComposer get recipeId {
     final $$RecipeTableTableFilterComposer composer = $composerBuilder(
       composer: this,
@@ -1743,6 +1797,11 @@ class $$RecipeIngredientsTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<int> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   $$RecipeTableTableOrderingComposer get recipeId {
     final $$RecipeTableTableOrderingComposer composer = $composerBuilder(
       composer: this,
@@ -1781,6 +1840,9 @@ class $$RecipeIngredientsTableTableAnnotationComposer
 
   GeneratedColumn<String> get name =>
       $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<int> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
 
   $$RecipeTableTableAnnotationComposer get recipeId {
     final $$RecipeTableTableAnnotationComposer composer = $composerBuilder(
@@ -1848,20 +1910,24 @@ class $$RecipeIngredientsTableTableTableManager
                 Value<int> id = const Value.absent(),
                 Value<int> recipeId = const Value.absent(),
                 Value<String> name = const Value.absent(),
+                Value<int> value = const Value.absent(),
               }) => RecipeIngredientsTableCompanion(
                 id: id,
                 recipeId: recipeId,
                 name: name,
+                value: value,
               ),
           createCompanionCallback:
               ({
                 Value<int> id = const Value.absent(),
                 required int recipeId,
                 required String name,
+                required int value,
               }) => RecipeIngredientsTableCompanion.insert(
                 id: id,
                 recipeId: recipeId,
                 name: name,
+                value: value,
               ),
           withReferenceMapper: (p0) => p0
               .map(
