@@ -6,5 +6,5 @@ class RecipeIngredientsTable extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get recipeId => integer().references(RecipeTable, #id)();
   TextColumn get name => text()();
-  IntColumn get value => integer()();
+  RealColumn get value => real()();
 }

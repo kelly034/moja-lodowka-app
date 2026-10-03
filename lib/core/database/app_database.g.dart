@@ -642,11 +642,11 @@ class $RecipeIngredientsTableTable extends RecipeIngredientsTable
   );
   static const VerificationMeta _valueMeta = const VerificationMeta('value');
   @override
-  late final GeneratedColumn<int> value = GeneratedColumn<int>(
+  late final GeneratedColumn<double> value = GeneratedColumn<double>(
     'value',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.double,
     requiredDuringInsert: true,
   );
   @override
@@ -715,7 +715,7 @@ class $RecipeIngredientsTableTable extends RecipeIngredientsTable
         data['${effectivePrefix}name'],
       )!,
       value: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.double,
         data['${effectivePrefix}value'],
       )!,
     );
@@ -732,7 +732,7 @@ class RecipeIngredientsTableData extends DataClass
   final int id;
   final int recipeId;
   final String name;
-  final int value;
+  final double value;
   const RecipeIngredientsTableData({
     required this.id,
     required this.recipeId,
@@ -745,7 +745,7 @@ class RecipeIngredientsTableData extends DataClass
     map['id'] = Variable<int>(id);
     map['recipe_id'] = Variable<int>(recipeId);
     map['name'] = Variable<String>(name);
-    map['value'] = Variable<int>(value);
+    map['value'] = Variable<double>(value);
     return map;
   }
 
@@ -767,7 +767,7 @@ class RecipeIngredientsTableData extends DataClass
       id: serializer.fromJson<int>(json['id']),
       recipeId: serializer.fromJson<int>(json['recipeId']),
       name: serializer.fromJson<String>(json['name']),
-      value: serializer.fromJson<int>(json['value']),
+      value: serializer.fromJson<double>(json['value']),
     );
   }
   @override
@@ -777,7 +777,7 @@ class RecipeIngredientsTableData extends DataClass
       'id': serializer.toJson<int>(id),
       'recipeId': serializer.toJson<int>(recipeId),
       'name': serializer.toJson<String>(name),
-      'value': serializer.toJson<int>(value),
+      'value': serializer.toJson<double>(value),
     };
   }
 
@@ -785,7 +785,7 @@ class RecipeIngredientsTableData extends DataClass
     int? id,
     int? recipeId,
     String? name,
-    int? value,
+    double? value,
   }) => RecipeIngredientsTableData(
     id: id ?? this.id,
     recipeId: recipeId ?? this.recipeId,
@@ -831,7 +831,7 @@ class RecipeIngredientsTableCompanion
   final Value<int> id;
   final Value<int> recipeId;
   final Value<String> name;
-  final Value<int> value;
+  final Value<double> value;
   const RecipeIngredientsTableCompanion({
     this.id = const Value.absent(),
     this.recipeId = const Value.absent(),
@@ -842,7 +842,7 @@ class RecipeIngredientsTableCompanion
     this.id = const Value.absent(),
     required int recipeId,
     required String name,
-    required int value,
+    required double value,
   }) : recipeId = Value(recipeId),
        name = Value(name),
        value = Value(value);
@@ -850,7 +850,7 @@ class RecipeIngredientsTableCompanion
     Expression<int>? id,
     Expression<int>? recipeId,
     Expression<String>? name,
-    Expression<int>? value,
+    Expression<double>? value,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -864,7 +864,7 @@ class RecipeIngredientsTableCompanion
     Value<int>? id,
     Value<int>? recipeId,
     Value<String>? name,
-    Value<int>? value,
+    Value<double>? value,
   }) {
     return RecipeIngredientsTableCompanion(
       id: id ?? this.id,
@@ -887,7 +887,7 @@ class RecipeIngredientsTableCompanion
       map['name'] = Variable<String>(name.value);
     }
     if (value.present) {
-      map['value'] = Variable<int>(value.value);
+      map['value'] = Variable<double>(value.value);
     }
     return map;
   }
@@ -1992,14 +1992,14 @@ typedef $$RecipeIngredientsTableTableCreateCompanionBuilder =
       Value<int> id,
       required int recipeId,
       required String name,
-      required int value,
+      required double value,
     });
 typedef $$RecipeIngredientsTableTableUpdateCompanionBuilder =
     RecipeIngredientsTableCompanion Function({
       Value<int> id,
       Value<int> recipeId,
       Value<String> name,
-      Value<int> value,
+      Value<double> value,
     });
 
 final class $$RecipeIngredientsTableTableReferences
@@ -2052,7 +2052,7 @@ class $$RecipeIngredientsTableTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get value => $composableBuilder(
+  ColumnFilters<double> get value => $composableBuilder(
     column: $table.value,
     builder: (column) => ColumnFilters(column),
   );
@@ -2100,7 +2100,7 @@ class $$RecipeIngredientsTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get value => $composableBuilder(
+  ColumnOrderings<double> get value => $composableBuilder(
     column: $table.value,
     builder: (column) => ColumnOrderings(column),
   );
@@ -2144,7 +2144,7 @@ class $$RecipeIngredientsTableTableAnnotationComposer
   GeneratedColumn<String> get name =>
       $composableBuilder(column: $table.name, builder: (column) => column);
 
-  GeneratedColumn<int> get value =>
+  GeneratedColumn<double> get value =>
       $composableBuilder(column: $table.value, builder: (column) => column);
 
   $$RecipeTableTableAnnotationComposer get recipeId {
@@ -2213,7 +2213,7 @@ class $$RecipeIngredientsTableTableTableManager
                 Value<int> id = const Value.absent(),
                 Value<int> recipeId = const Value.absent(),
                 Value<String> name = const Value.absent(),
-                Value<int> value = const Value.absent(),
+                Value<double> value = const Value.absent(),
               }) => RecipeIngredientsTableCompanion(
                 id: id,
                 recipeId: recipeId,
@@ -2225,7 +2225,7 @@ class $$RecipeIngredientsTableTableTableManager
                 Value<int> id = const Value.absent(),
                 required int recipeId,
                 required String name,
-                required int value,
+                required double value,
               }) => RecipeIngredientsTableCompanion.insert(
                 id: id,
                 recipeId: recipeId,

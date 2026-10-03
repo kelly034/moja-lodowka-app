@@ -65,7 +65,7 @@ class AppDatabase extends _$AppDatabase {
         final ingredientNames = List<String>.from(
           item["ingredientNames"] ?? [],
         );
-        final ingredientValues = List<int>.from(item["ingredientValues"] ?? []);
+        final ingredientValues = List<double>.from(item["ingredientValues"] ?? []);
         for (int i = 0; i < ingredientNames.length; i++) {
           await into(recipeIngredientsTable).insert(
             RecipeIngredientsTableCompanion.insert(
