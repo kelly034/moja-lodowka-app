@@ -5,10 +5,10 @@ class RecipeTable extends Table {
   TextColumn get name => text()();
   TextColumn get diet => text()();
   TextColumn get imageUrl => text()();
-  IntColumn get calories => integer()();
-  IntColumn get carbohydrates => integer()();
-  IntColumn get sugars => integer()();
-  IntColumn get protein => integer()();
-  IntColumn get fat => integer()();
+  TextColumn get calories => text()();
+  TextColumn get carbohydrates => text()();
+  TextColumn get sugars => text()();
+  TextColumn get protein => text()();
+  TextColumn get fat => text()();
   TextColumn get recipeUrl => text()();
 }

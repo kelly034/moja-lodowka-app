@@ -55,51 +55,51 @@ class $RecipeTableTable extends RecipeTable
     'calories',
   );
   @override
-  late final GeneratedColumn<int> calories = GeneratedColumn<int>(
+  late final GeneratedColumn<String> calories = GeneratedColumn<String>(
     'calories',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
   static const VerificationMeta _carbohydratesMeta = const VerificationMeta(
     'carbohydrates',
   );
   @override
-  late final GeneratedColumn<int> carbohydrates = GeneratedColumn<int>(
+  late final GeneratedColumn<String> carbohydrates = GeneratedColumn<String>(
     'carbohydrates',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
   static const VerificationMeta _sugarsMeta = const VerificationMeta('sugars');
   @override
-  late final GeneratedColumn<int> sugars = GeneratedColumn<int>(
+  late final GeneratedColumn<String> sugars = GeneratedColumn<String>(
     'sugars',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
   static const VerificationMeta _proteinMeta = const VerificationMeta(
     'protein',
   );
   @override
-  late final GeneratedColumn<int> protein = GeneratedColumn<int>(
+  late final GeneratedColumn<String> protein = GeneratedColumn<String>(
     'protein',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
   static const VerificationMeta _fatMeta = const VerificationMeta('fat');
   @override
-  late final GeneratedColumn<int> fat = GeneratedColumn<int>(
+  late final GeneratedColumn<String> fat = GeneratedColumn<String>(
     'fat',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
   static const VerificationMeta _recipeUrlMeta = const VerificationMeta(
@@ -242,23 +242,23 @@ class $RecipeTableTable extends RecipeTable
         data['${effectivePrefix}image_url'],
       )!,
       calories: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.string,
         data['${effectivePrefix}calories'],
       )!,
       carbohydrates: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.string,
         data['${effectivePrefix}carbohydrates'],
       )!,
       sugars: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.string,
         data['${effectivePrefix}sugars'],
       )!,
       protein: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.string,
         data['${effectivePrefix}protein'],
       )!,
       fat: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.string,
         data['${effectivePrefix}fat'],
       )!,
       recipeUrl: attachedDatabase.typeMapping.read(
@@ -279,11 +279,11 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
   final String name;
   final String diet;
   final String imageUrl;
-  final int calories;
-  final int carbohydrates;
-  final int sugars;
-  final int protein;
-  final int fat;
+  final String calories;
+  final String carbohydrates;
+  final String sugars;
+  final String protein;
+  final String fat;
   final String recipeUrl;
   const RecipeTableData({
     required this.id,
@@ -304,11 +304,11 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
     map['name'] = Variable<String>(name);
     map['diet'] = Variable<String>(diet);
     map['image_url'] = Variable<String>(imageUrl);
-    map['calories'] = Variable<int>(calories);
-    map['carbohydrates'] = Variable<int>(carbohydrates);
-    map['sugars'] = Variable<int>(sugars);
-    map['protein'] = Variable<int>(protein);
-    map['fat'] = Variable<int>(fat);
+    map['calories'] = Variable<String>(calories);
+    map['carbohydrates'] = Variable<String>(carbohydrates);
+    map['sugars'] = Variable<String>(sugars);
+    map['protein'] = Variable<String>(protein);
+    map['fat'] = Variable<String>(fat);
     map['recipe_url'] = Variable<String>(recipeUrl);
     return map;
   }
@@ -338,11 +338,11 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
       name: serializer.fromJson<String>(json['name']),
       diet: serializer.fromJson<String>(json['diet']),
       imageUrl: serializer.fromJson<String>(json['imageUrl']),
-      calories: serializer.fromJson<int>(json['calories']),
-      carbohydrates: serializer.fromJson<int>(json['carbohydrates']),
-      sugars: serializer.fromJson<int>(json['sugars']),
-      protein: serializer.fromJson<int>(json['protein']),
-      fat: serializer.fromJson<int>(json['fat']),
+      calories: serializer.fromJson<String>(json['calories']),
+      carbohydrates: serializer.fromJson<String>(json['carbohydrates']),
+      sugars: serializer.fromJson<String>(json['sugars']),
+      protein: serializer.fromJson<String>(json['protein']),
+      fat: serializer.fromJson<String>(json['fat']),
       recipeUrl: serializer.fromJson<String>(json['recipeUrl']),
     );
   }
@@ -354,11 +354,11 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
       'name': serializer.toJson<String>(name),
       'diet': serializer.toJson<String>(diet),
       'imageUrl': serializer.toJson<String>(imageUrl),
-      'calories': serializer.toJson<int>(calories),
-      'carbohydrates': serializer.toJson<int>(carbohydrates),
-      'sugars': serializer.toJson<int>(sugars),
-      'protein': serializer.toJson<int>(protein),
-      'fat': serializer.toJson<int>(fat),
+      'calories': serializer.toJson<String>(calories),
+      'carbohydrates': serializer.toJson<String>(carbohydrates),
+      'sugars': serializer.toJson<String>(sugars),
+      'protein': serializer.toJson<String>(protein),
+      'fat': serializer.toJson<String>(fat),
       'recipeUrl': serializer.toJson<String>(recipeUrl),
     };
   }
@@ -368,11 +368,11 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
     String? name,
     String? diet,
     String? imageUrl,
-    int? calories,
-    int? carbohydrates,
-    int? sugars,
-    int? protein,
-    int? fat,
+    String? calories,
+    String? carbohydrates,
+    String? sugars,
+    String? protein,
+    String? fat,
     String? recipeUrl,
   }) => RecipeTableData(
     id: id ?? this.id,
@@ -454,11 +454,11 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
   final Value<String> name;
   final Value<String> diet;
   final Value<String> imageUrl;
-  final Value<int> calories;
-  final Value<int> carbohydrates;
-  final Value<int> sugars;
-  final Value<int> protein;
-  final Value<int> fat;
+  final Value<String> calories;
+  final Value<String> carbohydrates;
+  final Value<String> sugars;
+  final Value<String> protein;
+  final Value<String> fat;
   final Value<String> recipeUrl;
   const RecipeTableCompanion({
     this.id = const Value.absent(),
@@ -477,11 +477,11 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     required String name,
     required String diet,
     required String imageUrl,
-    required int calories,
-    required int carbohydrates,
-    required int sugars,
-    required int protein,
-    required int fat,
+    required String calories,
+    required String carbohydrates,
+    required String sugars,
+    required String protein,
+    required String fat,
     required String recipeUrl,
   }) : name = Value(name),
        diet = Value(diet),
@@ -497,11 +497,11 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     Expression<String>? name,
     Expression<String>? diet,
     Expression<String>? imageUrl,
-    Expression<int>? calories,
-    Expression<int>? carbohydrates,
-    Expression<int>? sugars,
-    Expression<int>? protein,
-    Expression<int>? fat,
+    Expression<String>? calories,
+    Expression<String>? carbohydrates,
+    Expression<String>? sugars,
+    Expression<String>? protein,
+    Expression<String>? fat,
     Expression<String>? recipeUrl,
   }) {
     return RawValuesInsertable({
@@ -523,11 +523,11 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     Value<String>? name,
     Value<String>? diet,
     Value<String>? imageUrl,
-    Value<int>? calories,
-    Value<int>? carbohydrates,
-    Value<int>? sugars,
-    Value<int>? protein,
-    Value<int>? fat,
+    Value<String>? calories,
+    Value<String>? carbohydrates,
+    Value<String>? sugars,
+    Value<String>? protein,
+    Value<String>? fat,
     Value<String>? recipeUrl,
   }) {
     return RecipeTableCompanion(
@@ -560,19 +560,19 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
       map['image_url'] = Variable<String>(imageUrl.value);
     }
     if (calories.present) {
-      map['calories'] = Variable<int>(calories.value);
+      map['calories'] = Variable<String>(calories.value);
     }
     if (carbohydrates.present) {
-      map['carbohydrates'] = Variable<int>(carbohydrates.value);
+      map['carbohydrates'] = Variable<String>(carbohydrates.value);
     }
     if (sugars.present) {
-      map['sugars'] = Variable<int>(sugars.value);
+      map['sugars'] = Variable<String>(sugars.value);
     }
     if (protein.present) {
-      map['protein'] = Variable<int>(protein.value);
+      map['protein'] = Variable<String>(protein.value);
     }
     if (fat.present) {
-      map['fat'] = Variable<int>(fat.value);
+      map['fat'] = Variable<String>(fat.value);
     }
     if (recipeUrl.present) {
       map['recipe_url'] = Variable<String>(recipeUrl.value);
@@ -1486,11 +1486,11 @@ typedef $$RecipeTableTableCreateCompanionBuilder =
       required String name,
       required String diet,
       required String imageUrl,
-      required int calories,
-      required int carbohydrates,
-      required int sugars,
-      required int protein,
-      required int fat,
+      required String calories,
+      required String carbohydrates,
+      required String sugars,
+      required String protein,
+      required String fat,
       required String recipeUrl,
     });
 typedef $$RecipeTableTableUpdateCompanionBuilder =
@@ -1499,11 +1499,11 @@ typedef $$RecipeTableTableUpdateCompanionBuilder =
       Value<String> name,
       Value<String> diet,
       Value<String> imageUrl,
-      Value<int> calories,
-      Value<int> carbohydrates,
-      Value<int> sugars,
-      Value<int> protein,
-      Value<int> fat,
+      Value<String> calories,
+      Value<String> carbohydrates,
+      Value<String> sugars,
+      Value<String> protein,
+      Value<String> fat,
       Value<String> recipeUrl,
     });
 
@@ -1586,27 +1586,27 @@ class $$RecipeTableTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get calories => $composableBuilder(
+  ColumnFilters<String> get calories => $composableBuilder(
     column: $table.calories,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get carbohydrates => $composableBuilder(
+  ColumnFilters<String> get carbohydrates => $composableBuilder(
     column: $table.carbohydrates,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get sugars => $composableBuilder(
+  ColumnFilters<String> get sugars => $composableBuilder(
     column: $table.sugars,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get protein => $composableBuilder(
+  ColumnFilters<String> get protein => $composableBuilder(
     column: $table.protein,
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get fat => $composableBuilder(
+  ColumnFilters<String> get fat => $composableBuilder(
     column: $table.fat,
     builder: (column) => ColumnFilters(column),
   );
@@ -1697,27 +1697,27 @@ class $$RecipeTableTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get calories => $composableBuilder(
+  ColumnOrderings<String> get calories => $composableBuilder(
     column: $table.calories,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get carbohydrates => $composableBuilder(
+  ColumnOrderings<String> get carbohydrates => $composableBuilder(
     column: $table.carbohydrates,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get sugars => $composableBuilder(
+  ColumnOrderings<String> get sugars => $composableBuilder(
     column: $table.sugars,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get protein => $composableBuilder(
+  ColumnOrderings<String> get protein => $composableBuilder(
     column: $table.protein,
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get fat => $composableBuilder(
+  ColumnOrderings<String> get fat => $composableBuilder(
     column: $table.fat,
     builder: (column) => ColumnOrderings(column),
   );
@@ -1749,21 +1749,21 @@ class $$RecipeTableTableAnnotationComposer
   GeneratedColumn<String> get imageUrl =>
       $composableBuilder(column: $table.imageUrl, builder: (column) => column);
 
-  GeneratedColumn<int> get calories =>
+  GeneratedColumn<String> get calories =>
       $composableBuilder(column: $table.calories, builder: (column) => column);
 
-  GeneratedColumn<int> get carbohydrates => $composableBuilder(
+  GeneratedColumn<String> get carbohydrates => $composableBuilder(
     column: $table.carbohydrates,
     builder: (column) => column,
   );
 
-  GeneratedColumn<int> get sugars =>
+  GeneratedColumn<String> get sugars =>
       $composableBuilder(column: $table.sugars, builder: (column) => column);
 
-  GeneratedColumn<int> get protein =>
+  GeneratedColumn<String> get protein =>
       $composableBuilder(column: $table.protein, builder: (column) => column);
 
-  GeneratedColumn<int> get fat =>
+  GeneratedColumn<String> get fat =>
       $composableBuilder(column: $table.fat, builder: (column) => column);
 
   GeneratedColumn<String> get recipeUrl =>
@@ -1856,11 +1856,11 @@ class $$RecipeTableTableTableManager
                 Value<String> name = const Value.absent(),
                 Value<String> diet = const Value.absent(),
                 Value<String> imageUrl = const Value.absent(),
-                Value<int> calories = const Value.absent(),
-                Value<int> carbohydrates = const Value.absent(),
-                Value<int> sugars = const Value.absent(),
-                Value<int> protein = const Value.absent(),
-                Value<int> fat = const Value.absent(),
+                Value<String> calories = const Value.absent(),
+                Value<String> carbohydrates = const Value.absent(),
+                Value<String> sugars = const Value.absent(),
+                Value<String> protein = const Value.absent(),
+                Value<String> fat = const Value.absent(),
                 Value<String> recipeUrl = const Value.absent(),
               }) => RecipeTableCompanion(
                 id: id,
@@ -1880,11 +1880,11 @@ class $$RecipeTableTableTableManager
                 required String name,
                 required String diet,
                 required String imageUrl,
-                required int calories,
-                required int carbohydrates,
-                required int sugars,
-                required int protein,
-                required int fat,
+                required String calories,
+                required String carbohydrates,
+                required String sugars,
+                required String protein,
+                required String fat,
                 required String recipeUrl,
               }) => RecipeTableCompanion.insert(
                 id: id,

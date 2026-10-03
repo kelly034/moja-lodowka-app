@@ -46,7 +46,7 @@ class AppDatabase extends _$AppDatabase {
 
     await transaction(() async {
       for (final item in jsonList) {
-        final rawMacros = List<int>.from(item["macroValues"] ?? []);
+        final rawMacros = List<String>.from(item["macroValues"] ?? []);
 
         final recipeId = await into(recipeTable).insert(
           RecipeTableCompanion.insert(

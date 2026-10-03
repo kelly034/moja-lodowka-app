@@ -26,6 +26,7 @@ class RecipeModel extends Recipe {
       macroValues: [
         recipeData.calories,
         recipeData.carbohydrates,
+        recipeData.sugars,
         recipeData.protein,
         recipeData.fat,
       ],

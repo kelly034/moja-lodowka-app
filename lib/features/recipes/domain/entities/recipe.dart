@@ -3,7 +3,7 @@ class Recipe {
   final String name;
   final List<String> ingredientNames;
   final List<int> ingredientValues;
-  final List<int> macroValues;
+  final List<String> macroValues;
   final List<String> diets;
   final String imageUrl;
   final String recipeUrl;
