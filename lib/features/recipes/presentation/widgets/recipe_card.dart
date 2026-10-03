@@ -28,11 +28,21 @@ class RecipeCard extends StatelessWidget {
                   Hero(
                     tag: recipe.id,
                     placeholderBuilder: (context, size, child) {
-                      return Image.network(recipe.imageUrl, height: 200, width: double.infinity, fit: BoxFit.cover);
+                      return Image.network(
+                        recipe.imageUrl,
+                        height: 200,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      );
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Image.network(recipe.imageUrl, height: 200, width: double.infinity, fit: BoxFit.cover),
+                      child: Image.network(
+                        recipe.imageUrl,
+                        height: 200,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ],

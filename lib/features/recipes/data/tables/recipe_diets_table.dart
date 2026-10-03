@@ -1,4 +1,5 @@
 import "package:drift/drift.dart";
+
 import "recipe_table.dart";
 
 class RecipeDietsTable extends Table {

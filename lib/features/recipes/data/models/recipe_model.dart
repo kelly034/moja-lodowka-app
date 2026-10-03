@@ -14,10 +14,10 @@ class RecipeModel extends Recipe {
   });
 
   factory RecipeModel.fromDrift(
-      RecipeTableData recipeData,
-      List<RecipeIngredientsTableData> ingredientsData,
-      List<RecipeDietsTableData> dietData
-      ) {
+    RecipeTableData recipeData,
+    List<RecipeIngredientsTableData> ingredientsData,
+    List<RecipeDietsTableData> dietData,
+  ) {
     return RecipeModel(
       id: recipeData.id,
       name: recipeData.name,

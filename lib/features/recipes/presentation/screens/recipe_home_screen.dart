@@ -1,36 +1,21 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 
-import "../features/places/places_provider.dart";
-import "../widgets/place_card.dart";
-import "../widgets/settings_dialog.dart";
+import "../providers/recipes_providers.dart";
+import "../widgets/recipe_card.dart";
 
-class DreamPlaceHome extends ConsumerWidget {
-  const DreamPlaceHome({super.key});
+class RecipeHome extends ConsumerWidget {
+  const RecipeHome({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final placesAsync = ref.watch(placesProvider);
+    final recipesAsync = ref.watch(recipesProvider);
     return Scaffold(
       //backgroundColor: Theme.of(context).colorScheme.onPrimary,
-      appBar: AppBar(
-        //backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(
-          "Wymarzone destynacje",
-          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary, fontWeight: FontWeight.bold),
+      body: recipesAsync.when(
+        data: (recipes) => ListView(
+          children: [for (final recipe in recipes) RecipeCard(recipe: recipe)],
         ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () async {
-              await showDialog<void>(context: context, builder: (context) => const SettingsDialog());
-            },
-          ),
-        ],
-      ),
-      body: placesAsync.when(
-        data: (places) => ListView(children: [for (final place in places) PlaceCard(place: place)]),
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) => Center(child: Text("Błąd ładowania: $err")),
       ),
