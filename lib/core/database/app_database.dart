@@ -82,40 +82,39 @@ class AppDatabase extends _$AppDatabase {
             RecipeDietsTableCompanion.insert(recipeId: recipeId, name: diet),
           );
         }
-
-        final productNames = await rootBundle.loadString(
-          "assets/products.json",
-        );
-
-        final companions = productNames
-            .split("\n")
-            .map((line) => line.trim())
-            .where((line) => line.isNotEmpty)
-            .map((line) {
-              final lastSpaceIndex = line.lastIndexOf(" ");
-              if (lastSpaceIndex == -1) {
-                return FridgeProductsTableCompanion.insert(
-                  name: line,
-                  value: 0.0,
-                  unit: "szt",
-                );
-              }
-
-              final name = line.substring(0, lastSpaceIndex).trim();
-              final unit = line.substring(lastSpaceIndex + 1).trim();
-
-              return FridgeProductsTableCompanion.insert(
-                name: name,
-                value: 0.0,
-                unit: unit,
-              );
-            })
-            .toList();
-
-        await batch((batch) {
-          batch.insertAll(fridgeProductsTable, companions);
-        });
       }
+    });
+    final productNames = await rootBundle.loadString(
+      "assets/products.json",
+    );
+
+    final companions = productNames
+        .split("\n")
+        .map((line) => line.trim())
+        .where((line) => line.isNotEmpty)
+        .map((line) {
+      final lastSpaceIndex = line.lastIndexOf(" ");
+      if (lastSpaceIndex == -1) {
+        return FridgeProductsTableCompanion.insert(
+          name: line,
+          value: 0.0,
+          unit: "szt",
+        );
+      }
+
+      final name = line.substring(0, lastSpaceIndex).trim();
+      final unit = line.substring(lastSpaceIndex + 1).trim();
+
+      return FridgeProductsTableCompanion.insert(
+        name: name,
+        value: 0.0,
+        unit: unit,
+      );
+    })
+        .toList();
+
+    await batch((batch) {
+      batch.insertAll(fridgeProductsTable, companions);
     });
   }
 }
