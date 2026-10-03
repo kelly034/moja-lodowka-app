@@ -31,7 +31,6 @@ class HomeScreen extends ConsumerWidget {
             id: 1,
             imageUrl: "https://cdn.aniagotuje.com/pictures/articles/2019/08/1066517-v-1080x1315.jpg",
             ingredientNames: ["asd", "asd"],
-            ingredientValues: [1, 2],
             macroValues: [0, 0, 0, 0, 0],
           ))
         ]
