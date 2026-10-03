@@ -27,7 +27,7 @@ class HomeScreen extends ConsumerWidget {
         children: [
           RecipeCard(recipe: Recipe(
             name: "przepis",
-            diet: "asd",
+            diets: [],
             id: 1,
             imageUrl: "https://cdn.aniagotuje.com/pictures/articles/2019/08/1066517-v-1080x1315.jpg",
             ingredientNames: ["asd", "asd"],

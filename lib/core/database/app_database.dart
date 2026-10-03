@@ -7,10 +7,11 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 import '../../features/recipes/data/tables/recipe_table.dart';
 import '../../features/recipes/data/tables/recipe_ingredients_table.dart';
+import "../../features/recipes/data/tables/recipe_diets_table.dart";
 
 part "app_database.g.dart";
 
-@DriftDatabase(tables: [RecipeTable, RecipeIngredientsTable])
+@DriftDatabase(tables: [RecipeTable, RecipeIngredientsTable, RecipeDietsTable])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -55,6 +56,16 @@ class AppDatabase extends _$AppDatabase {
             RecipeIngredientsTableCompanion.insert(
               recipeId: recipeId,
               name: ingredientNames[i],
+            )
+          );
+        }
+
+        final dietNames = List<String>.from(item["diets"] ?? []);
+        for(final diet in dietNames) {
+          await into(recipeDietsTable).insert(
+            RecipeDietsTableCompanion.insert(
+              recipeId: recipeId,
+              name: diet,
             )
           );
         }

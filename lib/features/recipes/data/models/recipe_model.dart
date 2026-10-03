@@ -7,7 +7,7 @@ class RecipeModel extends Recipe {
     required super.name,
     required super.ingredientNames,
     required super.macroValues,
-    required super.diet,
+    required super.diets,
     required super.imageUrl,
     required super.recipeUrl,
   });
@@ -15,6 +15,7 @@ class RecipeModel extends Recipe {
   factory RecipeModel.fromDrift(
       RecipeTableData recipeData,
       List<RecipeIngredientsTableData> ingredientsData,
+      List<RecipeDietsTableData> dietData
       ) {
     return RecipeModel(
       id: recipeData.id,
@@ -26,7 +27,7 @@ class RecipeModel extends Recipe {
         recipeData.protein,
         recipeData.fat,
       ],
-      diet: recipeData.diet,
+      diets: dietData.map((diet) => diet.name).toList(),
       imageUrl: recipeData.imageUrl,
       recipeUrl: recipeData.recipeUrl,
     );

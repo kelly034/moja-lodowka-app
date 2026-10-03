@@ -13,23 +13,52 @@ class RecipesLocalDataSourceImpl implements RecipesLocalDataSource {
   @override
   Future<List<RecipeModel>> getAllRecipes() async {
     final rows = await (db.select(db.recipeTable).join([
-      innerJoin(
+      leftOuterJoin(
         db.recipeIngredientsTable,
         db.recipeIngredientsTable.recipeId.equalsExp(db.recipeTable.id),
       ),
+      leftOuterJoin(
+        db.recipeDietsTable,
+        db.recipeDietsTable.recipeId.equalsExp(db.recipeTable.id),
+      ),
     ])).get();
 
-    final Map<RecipeTableData, List<RecipeIngredientsTableData>> grouped = {};
+    final Map<RecipeTableData, _RecipeDataHolder> grouped = {};
 
     for (final row in rows) {
       final recipe = row.readTable(db.recipeTable);
-      final ingredient = row.readTable(db.recipeIngredientsTable);
+      final ingredient = row.readTableOrNull(db.recipeIngredientsTable);
+      final diet = row.readTableOrNull(db.recipeDietsTable);
 
-      grouped.putIfAbsent(recipe, () => []).add(ingredient);
+      final holder = grouped.putIfAbsent(
+        recipe,
+            () => _RecipeDataHolder(ingredients: {}, diets: {}),
+      );
+
+      if (ingredient != null) {
+        holder.ingredients.add(ingredient);
+      }
+      if (diet != null) {
+        holder.diets.add(diet);
+      }
     }
 
     return grouped.entries.map((entry) {
-      return RecipeModel.fromDrift(entry.key, entry.value);
+      return RecipeModel.fromDrift(
+        entry.key,
+        entry.value.ingredients.toList(),
+        entry.value.diets.toList(),
+      );
     }).toList();
   }
+}
+
+class _RecipeDataHolder {
+  final Set<RecipeIngredientsTableData> ingredients;
+  final Set<RecipeDietsTableData> diets;
+
+  _RecipeDataHolder({
+    required this.ingredients,
+    required this.diets,
+  });
 }

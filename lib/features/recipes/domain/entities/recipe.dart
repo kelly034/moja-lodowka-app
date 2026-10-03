@@ -3,7 +3,7 @@ class Recipe {
   final String name;
   final List<String> ingredientNames;
   final List<int> macroValues;
-  final String diet;
+  final List<String> diets;
   final String imageUrl;
   final String recipeUrl;
 
@@ -12,7 +12,7 @@ class Recipe {
     required this.name,
     required this.ingredientNames,
     required this.macroValues,
-    required this.diet,
+    required this.diets,
     required this.imageUrl,
     required this.recipeUrl,
   });
