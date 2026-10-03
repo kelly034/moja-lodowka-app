@@ -1,0 +1,1584 @@
+[
+    {
+        "name": "Fasolka po bretońsku",
+        "recipeUrl": "https://aniagotuje.pl/przepis/fasolka-po-bretonsku",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2023/06/44022062-v-1500x1500.jpg",
+        "macroValues": [
+            "100 kcal",
+            "10 g",
+            "2 g",
+            "6 g",
+            "4 g"
+        ],
+        "ingredientNames": [
+            "fasola",
+            "woda",
+            "boczek wędzony",
+            "kiełbasa",
+            "cebula",
+            "ząbek czosnku",
+            "pomidory",
+            "koncentrat pomidorowy",
+            "ziele angielskie",
+            "liść laurowy",
+            "majeranek",
+            "sól",
+            "pieprz",
+            "papryka wędzona"
+        ],
+        "ingredientValues": [
+            "500",
+            "1000",
+            "300",
+            "400",
+            "1",
+            "5",
+            "1500",
+            "35",
+            "3",
+            "3",
+            "4",
+            "10",
+            "3",
+            "3"
+        ]
+    },
+    {
+        "name": "Leczo",
+        "recipeUrl": "https://aniagotuje.pl/przepis/leczo",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2019/07/921423-v-1500x1500.jpg",
+        "macroValues": [
+            "81 kcal",
+            "6 g",
+            "4 g",
+            "3 g",
+            "5 g"
+        ],
+        "ingredientNames": [
+            "papryka",
+            "pomidor",
+            "cebula",
+            "ząbek czosnku",
+            "kiełbasa",
+            "olej",
+            "oregano",
+            "papryka słodka",
+            "papryka wędzona",
+            "papryka ostra",
+            "sól",
+            "pieprz"
+        ],
+        "ingredientValues": [
+            "850",
+            "850",
+            "3",
+            "4",
+            "200",
+            "60",
+            "20",
+            "10",
+            "3",
+            "1.5",
+            "5",
+            "1"
+        ]
+    },
+    {
+        "name": "Kotlety mielone",
+        "recipeUrl": "https://aniagotuje.pl/przepis/kotlety-mielone",
+        "diets": [
+            "niskocukrowa",
+            "niskowęglowodanowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/03/2463382-v-1500x1500.jpg",
+        "macroValues": [
+            "286 kcal",
+            "8 g",
+            "2 g",
+            "14 g",
+            "22 g"
+        ],
+        "ingredientNames": [
+            "łopatka wieprzowa",
+            "kajzerka",
+            "jajko",
+            "cebula",
+            "ząbek czosnku",
+            "bułka tarta",
+            "majeranek",
+            "sól",
+            "pieprz",
+            "olej"
+        ],
+        "ingredientValues": [
+            "500",
+            "0.5",
+            "1",
+            "1",
+            "1",
+            "40",
+            "4",
+            "5",
+            "1.5",
+            "45"
+        ]
+    },
+    {
+        "name": "Gołąbki",
+        "recipeUrl": "https://aniagotuje.pl/przepis/golabki-tradycyjne",
+        "diets": [
+            "niskocukrowa",
+            "niskowęglowodanowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/09/7375885-v-1500x1500.jpg",
+        "macroValues": [
+            "107 kcal",
+            "4 g",
+            "2 g",
+            "7 g",
+            "7 g"
+        ],
+        "ingredientNames": [
+            "łopatka wieprzowa",
+            "kapusta biała",
+            "bulion",
+            "cebula",
+            "olej",
+            "bułka tarta",
+            "koncentrat pomidorowy",
+            "sól",
+            "pieprz"
+        ],
+        "ingredientValues": [
+            "700",
+            "1",
+            "375",
+            "1",
+            "15",
+            "20",
+            "30",
+            "5",
+            "3"
+        ]
+    },
+    {
+        "name": "Gulasz wieprzowy",
+        "recipeUrl": "https://aniagotuje.pl/przepis/gulasz-wieprzowy",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "niskowęglowodanowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/02/2260616-v-1500x1500.jpg",
+        "macroValues": [
+            "167 kcal",
+            "7 g",
+            "3 g",
+            "10 g",
+            "11 g"
+        ],
+        "ingredientNames": [
+            "łopatka wieprzowa",
+            "papryka",
+            "marchew",
+            "cebula",
+            "ząbek czosnku",
+            "smalec",
+            "bulion",
+            "koncentrat pomidorowy",
+            "papryka słodka",
+            "sól",
+            "pieprz",
+            "chili"
+        ],
+        "ingredientValues": [
+            "1000",
+            "500",
+            "2",
+            "3",
+            "4",
+            "70",
+            "500",
+            "45",
+            "20",
+            "2.5",
+            "1.5",
+            "0.5"
+        ]
+    },
+    {
+        "name": "Knedle ze śliwkami",
+        "recipeUrl": "https://aniagotuje.pl/przepis/knedle-ze-sliwkami",
+        "diets": [
+            "niskocukrowa",
+            "niskotłuszczowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2019/08/921987-v-1500x1500.jpg",
+        "macroValues": [
+            "121 kcal",
+            "25 g",
+            "3 g",
+            "3 g",
+            "1 g"
+        ],
+        "ingredientNames": [
+            "ziemniaki",
+            "jajko",
+            "śliwki",
+            "mąka pszenna",
+            "mąka ziemniaczana",
+            "sól"
+        ],
+        "ingredientValues": [
+            "500",
+            "1",
+            "300",
+            "200",
+            "25",
+            "15.5"
+        ]
+    },
+    {
+        "name": "Placki ziemniaczane",
+        "recipeUrl": "https://aniagotuje.pl/przepis/tradycyjne-placki-ziemniaczane",
+        "diets": [
+            "niskocukrowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/10/8437530-v-1500x1500.jpg",
+        "macroValues": [
+            "172 kcal",
+            "21 g",
+            "2 g",
+            "4 g",
+            "8 g"
+        ],
+        "ingredientNames": [
+            "ziemniaki",
+            "jajko",
+            "cebula",
+            "mąka pszenna",
+            "szczypiorek",
+            "cukier",
+            "sól",
+            "pieprz",
+            "olej"
+        ],
+        "ingredientValues": [
+            "1000",
+            "2",
+            "1",
+            "20",
+            "1",
+            "5",
+            "5",
+            "3",
+            "0"
+        ]
+    },
+    {
+        "name": "Kopytka",
+        "recipeUrl": "https://aniagotuje.pl/przepis/tradycyjne-kopytka-z-bulka-tarta",
+        "diets": [
+            "niskocukrowa",
+            "niskotłuszczowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2021/06/15868274-v-1500x1500.jpg",
+        "macroValues": [
+            "137 kcal",
+            "28 g",
+            "1 g",
+            "4 g",
+            "1 g"
+        ],
+        "ingredientNames": [
+            "ziemniaki",
+            "mąka pszenna",
+            "jajko",
+            "sól"
+        ],
+        "ingredientValues": [
+            "1000",
+            "230",
+            "1",
+            "5"
+        ]
+    },
+    {
+        "name": "Kluski śląskie",
+        "recipeUrl": "https://aniagotuje.pl/przepis/jak-zrobic-kluski-slaskie",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "niskotłuszczowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2019/09/1067246-v-1500x1500.jpg",
+        "macroValues": [
+            "138 kcal",
+            "28 g",
+            "1 g",
+            "2 g",
+            "2 g"
+        ],
+        "ingredientNames": [
+            "ziemniaki",
+            "skrobia ziemniaczana",
+            "jajko",
+            "sól"
+        ],
+        "ingredientValues": [
+            "1000",
+            "200",
+            "1",
+            "2.5"
+        ]
+    },
+    {
+        "name": "Pierogi ruskie",
+        "recipeUrl": "https://aniagotuje.pl/przepis/pierogi-ruskie",
+        "diets": [
+            "niskocukrowa",
+            "niskotłuszczowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/01/2063431-v-1500x1500.jpg",
+        "macroValues": [
+            "148 kcal",
+            "23 g",
+            "2 g",
+            "5 g",
+            "4 g"
+        ],
+        "ingredientNames": [
+            "mąka pszenna",
+            "woda",
+            "olej",
+            "twaróg",
+            "cebula",
+            "ziemniaki",
+            "masło klarowane",
+            "sól",
+            "pieprz"
+        ],
+        "ingredientValues": [
+            "500",
+            "250",
+            "50",
+            "300",
+            "1",
+            "500",
+            "30",
+            "5",
+            "1.5"
+        ]
+    },
+    {
+        "name": "Zupa dyniowa",
+        "recipeUrl": "https://aniagotuje.pl/przepis/zupa-dyniowa",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2024/09/67407508-v-1500x1500.jpg",
+        "macroValues": [
+            "76 kcal",
+            "9 g",
+            "2 g",
+            "1 g",
+            "4 g"
+        ],
+        "ingredientNames": [
+            "dynia",
+            "ziemniaki",
+            "cebula",
+            "ząbek czosnku",
+            "bulion warzywny",
+            "śmietanka 30%",
+            "masło klarowane",
+            "sól",
+            "pieprz",
+            "curry"
+        ],
+        "ingredientValues": [
+            "1000",
+            "400",
+            "1",
+            "2",
+            "500",
+            "100",
+            "40",
+            "5",
+            "1.5",
+            "1.5"
+        ]
+    },
+    {
+        "name": "Zupa grzybowa",
+        "recipeUrl": "https://aniagotuje.pl/przepis/zupa-grzybowa",
+        "diets": [
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2019/10/1324485-v-1500x1500.jpg",
+        "macroValues": [
+            "72 kcal",
+            "7 g",
+            "2 g",
+            "2 g",
+            "4 g"
+        ],
+        "ingredientNames": [
+            "grzyby",
+            "bulion",
+            "cebula",
+            "ziemniaki",
+            "marchew",
+            "ząbek czosnku",
+            "koperek",
+            "olej",
+            "masło klarowane",
+            "mąka pszenna",
+            "śmietanka 30%",
+            "majeranek",
+            "sól",
+            "pieprz"
+        ],
+        "ingredientValues": [
+            "600",
+            "1000",
+            "1",
+            "450",
+            "2",
+            "3",
+            "20",
+            "30",
+            "45",
+            "10",
+            "45",
+            "1",
+            "5",
+            "3"
+        ]
+    },
+    {
+        "name": "Krupnik",
+        "recipeUrl": "https://aniagotuje.pl/przepis/krupnik",
+        "diets": [
+            "niskocukrowa",
+            "niskotłuszczowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/11/9086298-v-1500x1500.jpg",
+        "macroValues": [
+            "45 kcal",
+            "5 g",
+            "1 g",
+            "4 g",
+            "1 g"
+        ],
+        "ingredientNames": [
+            "kurczak",
+            "kasza jęczmienna",
+            "ziemniaki",
+            "marchew",
+            "pietruszka",
+            "cebula",
+            "woda",
+            "natka pietruszki",
+            "koperek",
+            "sól",
+            "pieprz",
+            "liść laurowy",
+            "ziele angielskie",
+            "kurkuma"
+        ],
+        "ingredientValues": [
+            "800",
+            "80",
+            "500",
+            "1",
+            "1",
+            "1",
+            "2000",
+            "12",
+            "12",
+            "5",
+            "1",
+            "1",
+            "2",
+            "0.5"
+        ]
+    },
+    {
+        "name": "Zupa ogórkowa",
+        "recipeUrl": "https://aniagotuje.pl/przepis/zupa-ogorkowa-na-rosole",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/11/9334534-v-1500x1500.jpg",
+        "macroValues": [
+            "46 kcal",
+            "3 g",
+            "1 g",
+            "4 g",
+            "2 g"
+        ],
+        "ingredientNames": [
+            "indyk",
+            "seler",
+            "pietruszka",
+            "marchew",
+            "cebula",
+            "woda",
+            "liść laurowy",
+            "ziele angielskie",
+            "pieprz ziarnisty",
+            "sól",
+            "ogórek kiszony",
+            "ziemniaki",
+            "śmietanka 30%"
+        ],
+        "ingredientValues": [
+            "700",
+            "0.5",
+            "1",
+            "1",
+            "1",
+            "1250",
+            "1",
+            "3",
+            "3",
+            "5",
+            "450",
+            "300",
+            "100"
+        ]
+    },
+    {
+        "name": "Rosół z kury",
+        "recipeUrl": "https://aniagotuje.pl/przepis/rosol-z-kury",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "niskowęglowodanowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/01/1968771-v-1500x1500.jpg",
+        "macroValues": [
+            "39 kcal",
+            "1 g",
+            "1 g",
+            "2 g",
+            "3 g"
+        ],
+        "ingredientNames": [
+            "kurczak",
+            "marchew",
+            "pietruszka",
+            "cebula",
+            "por",
+            "seler",
+            "ząbek czosnku",
+            "woda",
+            "natka pietruszki",
+            "liść laurowy",
+            "ziele angielskie",
+            "pieprz ziarnisty",
+            "sól"
+        ],
+        "ingredientValues": [
+            "1500",
+            "2",
+            "1",
+            "1",
+            "100",
+            "0.25",
+            "2",
+            "2000",
+            "20",
+            "2",
+            "3",
+            "3",
+            "10"
+        ]
+    },
+    {
+        "name": "Sałatka Gyros",
+        "recipeUrl": "https://aniagotuje.pl/przepis/salatka-gyros",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2024/11/70941186-v-1500x1500.jpg",
+        "macroValues": [
+            "105 kcal",
+            "7 g",
+            "3 g",
+            "9 g",
+            "4 g"
+        ],
+        "ingredientNames": [
+            "pierś z kurczaka",
+            "olej",
+            "przyprawa gyros",
+            "majonez",
+            "jogurt naturalny",
+            "ząbek czosnku",
+            "sok z cytryny",
+            "koperek",
+            "kukurydza konserwowa",
+            "ogórek konserwowy",
+            "czerwona cebula",
+            "sałata lodowa",
+            "pomidory koktajlowe",
+            "ogórek",
+            "papryka",
+            "ketchup"
+        ],
+        "ingredientValues": [
+            "800",
+            "30",
+            "30",
+            "30",
+            "60",
+            "2",
+            "45",
+            "6",
+            "400",
+            "150",
+            "100",
+            "150",
+            "150",
+            "150",
+            "300",
+            "60"
+        ]
+    },
+    {
+        "name": "Sałatka cezar",
+        "recipeUrl": "https://aniagotuje.pl/przepis/salatka-cezar",
+        "diets": [
+            "niskocukrowa",
+            "niskowęglowodanowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2021/11/21731412-v-1500x1500.jpg",
+        "macroValues": [
+            "200 kcal",
+            "7 g",
+            "1 g",
+            "14 g",
+            "13 g"
+        ],
+        "ingredientNames": [
+            "sałata rzymska",
+            "bagietka pszenna",
+            "pierś z kurczaka",
+            "oliwa",
+            "majonez",
+            "musztarda",
+            "ząbek czosnku",
+            "sok z cytryny",
+            "sos worcestershire",
+            "parmezan",
+            "pieprz",
+            "czerwony ocet winny"
+        ],
+        "ingredientValues": [
+            "2",
+            "0.5",
+            "600",
+            "30",
+            "160",
+            "15",
+            "7",
+            "30",
+            "15",
+            "85",
+            "0.5",
+            "0"
+        ]
+    },
+    {
+        "name": "Surówka Colesław",
+        "recipeUrl": "https://aniagotuje.pl/przepis/surowka-coleslaw",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2017/08/103982-v-1000x1000.jpg",
+        "macroValues": [
+            "104 kcal",
+            "7 g",
+            "4 g",
+            "1 g",
+            "8 g"
+        ],
+        "ingredientNames": [
+            "kapusta biała",
+            "marchew",
+            "cebula",
+            "majonez",
+            "sok z cytryny",
+            "cukier puder",
+            "sól",
+            "pieprz"
+        ],
+        "ingredientValues": [
+            "0.5",
+            "2",
+            "1",
+            "200",
+            "40",
+            "20",
+            "2.5",
+            "1.5"
+        ]
+    },
+    {
+        "name": "Surówka z kapusty pekińskiej",
+        "recipeUrl": "https://aniagotuje.pl/przepis/surowka-z-kapusty-pekinskiej",
+        "diets": [
+            "bezglutenowa",
+            "niskokaloryczna",
+            "niskotłuszczowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2020/11/9099590-v-1500x1500.jpg",
+        "macroValues": [
+            "32 kcal",
+            "7 g",
+            "5 g",
+            "1 g",
+            "0 g"
+        ],
+        "ingredientNames": [
+            "kapusta pekińska",
+            "marchew",
+            "jabłko",
+            "sól",
+            "jogurt naturalny"
+        ],
+        "ingredientValues": [
+            "200",
+            "1",
+            "1",
+            "5",
+            "15"
+        ]
+    },
+    {
+        "name": "Sałatka jarzynowa",
+        "recipeUrl": "https://aniagotuje.pl/przepis/salatka-jarzynowa",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2024/02/56727797-v-1500x1500.jpg",
+        "macroValues": [
+            "80 kcal",
+            "9 g",
+            "3 g",
+            "2 g",
+            "4 g"
+        ],
+        "ingredientNames": [
+            "ziemniaki",
+            "marchew",
+            "pietruszka",
+            "seler",
+            "ogórek kiszony",
+            "cebula",
+            "jabłko",
+            "groszek konserwowy",
+            "jajko",
+            "majonez",
+            "jogurt naturalny",
+            "sól",
+            "pieprz"
+        ],
+        "ingredientValues": [
+            "350",
+            "4",
+            "2",
+            "0.1",
+            "200",
+            "1",
+            "1",
+            "400",
+            "4",
+            "60",
+            "60",
+            "2.5",
+            "0.8"
+        ]
+    },
+    {
+        "name": "Lazania",
+        "recipeUrl": "https://aniagotuje.pl/przepis/lazania",
+        "diets": [
+            "niskocukrowa",
+            "niskowęglowodanowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2018/11/166274-v-1000x1000.jpg",
+        "macroValues": [
+            "218 kcal",
+            "10 g",
+            "3 g",
+            "13 g",
+            "14 g"
+        ],
+        "ingredientNames": [
+            "łopatka wieprzowa",
+            "cebula",
+            "ząbek czosnku",
+            "pieczarki",
+            "przecier pomidorowy",
+            "koncentrat pomidorowy",
+            "majeranek",
+            "zioła prowansalskie",
+            "sól",
+            "pieprz",
+            "papryka słodka",
+            "olej",
+            "śmietanka 30%",
+            "mleko",
+            "makaron do lazanii",
+            "mozzarella",
+            "ser żółty"
+        ],
+        "ingredientValues": [
+            "700",
+            "2",
+            "6",
+            "200",
+            "330",
+            "200",
+            "4",
+            "4",
+            "5",
+            "3",
+            "6",
+            "60",
+            "100",
+            "80",
+            "215",
+            "250",
+            "250"
+        ]
+    },
+    {
+        "name": "Spaghetti Bolognese",
+        "recipeUrl": "https://aniagotuje.pl/przepis/szybkie-i-doskonale-spaghetti",
+        "diets": [
+            "niskocukrowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2024/05/61816588-v-1500x1500.jpg",
+        "macroValues": [
+            "139 kcal",
+            "12 g",
+            "2 g",
+            "7 g",
+            "7 g"
+        ],
+        "ingredientNames": [
+            "wołowina",
+            "boczek",
+            "bulion",
+            "czerwone wino wytrawne",
+            "pomidory krojone",
+            "koncentrat pomidorowy",
+            "ząbek czosnku",
+            "cebula",
+            "seler naciowy",
+            "marchew",
+            "mleko",
+            "olej",
+            "sól",
+            "oregano",
+            "pieprz",
+            "makaron spaghetti",
+            "parmezan",
+            "bazylia"
+        ],
+        "ingredientValues": [
+            "500",
+            "200",
+            "1000",
+            "185",
+            "400",
+            "45",
+            "10",
+            "1",
+            "180",
+            "2",
+            "80",
+            "60",
+            "5",
+            "1.5",
+            "3",
+            "500",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "name": "Makaron ze szpinakiem",
+        "recipeUrl": "https://aniagotuje.pl/przepis/makaron-ze-szpinakiem",
+        "diets": [
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2019/05/664202-v-1500x1500.jpg",
+        "macroValues": [
+            "173 kcal",
+            "16 g",
+            "2 g",
+            "7 g",
+            "9 g"
+        ],
+        "ingredientNames": [
+            "makaron",
+            "szpinak",
+            "cebula",
+            "masło klarowane",
+            "ząbek czosnku",
+            "sok z cytryny",
+            "śmietanka 30%",
+            "parmezan",
+            "sól",
+            "pieprz",
+            "gałka muszkatołowa"
+        ],
+        "ingredientValues": [
+            "200",
+            "250",
+            "1",
+            "30",
+            "3",
+            "45",
+            "150",
+            "100",
+            "1.25",
+            "0.5",
+            "0.5"
+        ]
+    },
+    {
+        "name": "Makaron z brokułami",
+        "recipeUrl": "https://aniagotuje.pl/przepis/makaron-z-brokulami",
+        "diets": [
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2021/02/12210698-v-1500x1500.jpg",
+        "macroValues": [
+            "133 kcal",
+            "18 g",
+            "2 g",
+            "4 g",
+            "5 g"
+        ],
+        "ingredientNames": [
+            "makaron",
+            "woda",
+            "brokuł",
+            "cebula",
+            "ząbek czosnku",
+            "śmietanka 30%",
+            "olej",
+            "masło klarowane",
+            "mąka pszenna",
+            "parmezan",
+            "sól",
+            "pieprz",
+            "gałka muszkatołowa",
+            "sok z cytryny",
+            "ketchup",
+            "mleko",
+            "ser żółty"
+        ],
+        "ingredientValues": [
+            "300",
+            "130",
+            "580",
+            "1",
+            "1",
+            "90",
+            "15",
+            "15",
+            "5",
+            "40",
+            "1.7",
+            "0.8",
+            "0.5",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "name": "Mac and cheese",
+        "recipeUrl": "https://aniagotuje.pl/przepis/mac-and-cheese",
+        "diets": [
+            "niskocukrowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2022/03/25504904-v-1500x1500.jpg",
+        "macroValues": [
+            "248 kcal",
+            "25 g",
+            "2 g",
+            "10 g",
+            "12 g"
+        ],
+        "ingredientNames": [
+            "makaron kolanka",
+            "mleko",
+            "cheddar",
+            "masło",
+            "mąka pszenna",
+            "pieprz"
+        ],
+        "ingredientValues": [
+            "250",
+            "250",
+            "200",
+            "35",
+            "30",
+            "0.5"
+        ]
+    },
+    {
+        "name": "Naleśniki",
+        "recipeUrl": "https://aniagotuje.pl/przepis/jak-zrobic-ciasto-na-nalesniki",
+        "diets": [
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2019/08/1066536-v-1500x1500.jpg",
+        "macroValues": [
+            "263 kcal",
+            "32 g",
+            "2 g",
+            "9 g",
+            "11 g"
+        ],
+        "ingredientNames": [
+            "mąka pszenna",
+            "jajko",
+            "mleko",
+            "woda",
+            "olej",
+            "sól"
+        ],
+        "ingredientValues": [
+            "230",
+            "3",
+            "250",
+            "250",
+            "40",
+            "0.5"
+        ]
+    },
+    {
+        "name": "Przepis na gofry",
+        "recipeUrl": "https://aniagotuje.pl/przepis/gofry",
+        "diets": [
+            "niskocukrowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2023/12/52594518-v-1500x1500.jpg",
+        "macroValues": [
+            "282 kcal",
+            "31 g",
+            "4 g",
+            "8 g",
+            "14 g"
+        ],
+        "ingredientNames": [
+            "mąka pszenna",
+            "mleko",
+            "olej",
+            "jajko",
+            "proszek do pieczenia",
+            "cukier",
+            "sól"
+        ],
+        "ingredientValues": [
+            "300",
+            "375",
+            "80",
+            "3",
+            "4",
+            "5",
+            "0.5"
+        ]
+    },
+    {
+        "name": "Racuchy z jabłkami",
+        "recipeUrl": "https://aniagotuje.pl/przepis/racuchy-z-jablkami",
+        "diets": [
+            "niskotłuszczowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2023/12/52594504-v-1500x1500.jpg",
+        "macroValues": [
+            "186 kcal",
+            "28 g",
+            "6 g",
+            "5 g",
+            "6 g"
+        ],
+        "ingredientNames": [
+            "jajko",
+            "mleko",
+            "jabłko",
+            "mąka pszenna",
+            "soda oczyszczona",
+            "proszek do pieczenia"
+        ],
+        "ingredientValues": [
+            "2",
+            "250",
+            "2",
+            "250",
+            "2",
+            "2"
+        ]
+    },
+    {
+        "name": "Pancakes",
+        "recipeUrl": "https://aniagotuje.pl/przepis/pancakes-sniadaniowe",
+        "diets": [
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2023/02/38480087-v-1500x1500.jpg",
+        "macroValues": [
+            "228 kcal",
+            "31 g",
+            "6 g",
+            "8 g",
+            "8 g"
+        ],
+        "ingredientNames": [
+            "mąka pszenna",
+            "mleko",
+            "jajko",
+            "jogurt naturalny",
+            "cukier",
+            "soda oczyszczona",
+            "olej"
+        ],
+        "ingredientValues": [
+            "200",
+            "250",
+            "3",
+            "30",
+            "25",
+            "3",
+            "30"
+        ]
+    },
+    {
+        "name": "Szakszuka",
+        "recipeUrl": "https://aniagotuje.pl/przepis/szakszuka",
+        "diets": [
+            "bezglutenowa",
+            "niskocukrowa",
+            "niskowęglowodanowa",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2023/10/49930120-v-1500x1500.jpg",
+        "macroValues": [
+            "77 kcal",
+            "4 g",
+            "3 g",
+            "4 g",
+            "5 g"
+        ],
+        "ingredientNames": [
+            "pomidor",
+            "jajko",
+            "masło klarowane",
+            "oliwa",
+            "cebula",
+            "ząbek czosnku",
+            "papryka słodka",
+            "pieprz cayenne",
+            "gałka muszkatołowa",
+            "kmin rzymski",
+            "kolendra",
+            "szczypiorek"
+        ],
+        "ingredientValues": [
+            "500",
+            "3",
+            "15",
+            "15",
+            "1",
+            "2",
+            "1",
+            "0.5",
+            "0.5",
+            "0.5",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "name": "Truskawki pod kruszonką z Air Fryera",
+        "recipeUrl": "https://aniagotuje.pl/przepis/truskawki-pod-kruszonka-z-air-fryera",
+        "diets": [
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2026/06/102969413-v-1500x1500.jpg",
+        "macroValues": [
+            "210 kcal",
+            "28 g",
+            "15 g",
+            "2 g",
+            "10 g"
+        ],
+        "ingredientNames": [
+            "truskawki",
+            "mąka pszenna",
+            "masło",
+            "cukier",
+            "cukier wanilinowy"
+        ],
+        "ingredientValues": [
+            "600",
+            "120",
+            "100",
+            "50",
+            "43"
+        ]
+    },
+    {
+        "name": "Szparagi z Air Fryera",
+        "recipeUrl": "https://aniagotuje.pl/przepis/szparagi-z-air-fryera",
+        "diets": [
+            "niskocukrowa",
+            "wegetariańska",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2026/05/101837141-v-1500x1500.jpg",
+        "macroValues": [
+            "121 kcal",
+            "10 g",
+            "2 g",
+            "9 g",
+            "5 g"
+        ],
+        "ingredientNames": [
+            "szparagi",
+            "jajko",
+            "bułka tarta",
+            "parmezan",
+            "chili"
+        ],
+        "ingredientValues": [
+            "500",
+            "2",
+            "40",
+            "40",
+            "1"
+        ]
+    },
+    {
+        "name": "Skyrnik z Air Fryera",
+        "recipeUrl": "https://aniagotuje.pl/przepis/skyrnik-z-air-fryera",
+        "diets": [
+            "bezglutenowa",
+            "niskotłuszczowa",
+            "wegetariańska",
+            "wysokobiałkowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2026/04/100254547-v-1500x1500.jpg",
+        "macroValues": [
+            "110 kcal",
+            "14 g",
+            "9 g",
+            "9 g",
+            "2 g"
+        ],
+        "ingredientNames": [
+            "skyr",
+            "jajko",
+            "budyń waniliowy",
+            "erytrytol",
+            "brzoskwinie",
+            "dżem"
+        ],
+        "ingredientValues": [
+            "450",
+            "2",
+            "40",
+            "70",
+            "150",
+            "50"
+        ]
+    },
+    {
+        "name": "Prażona kukurydza",
+        "recipeUrl": "https://aniagotuje.pl/przepis/prazona-kukurydza",
+        "diets": [
+            "bezglutenowa",
+            "wegańska",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2025/08/85382150-v-1500x1500.jpg",
+        "macroValues": [
+            "138 kcal",
+            "18 g",
+            "7 g",
+            "3 g",
+            "6 g"
+        ],
+        "ingredientNames": [
+            "kukurydza",
+            "oliwa",
+            "papryka słodka",
+            "papryka ostra",
+            "sól",
+            "sos tzatziki",
+            "parmezan",
+            "natka pietruszki"
+        ],
+        "ingredientValues": [
+            "500",
+            "20",
+            "1.5",
+            "1",
+            "1.7",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "name": "Pieczone bataty",
+        "recipeUrl": "https://aniagotuje.pl/przepis/pieczone-bataty",
+        "diets": [
+            "bezglutenowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2025/08/86092863-v-1500x1500.jpg",
+        "macroValues": [
+            "116 kcal",
+            "17 g",
+            "5 g",
+            "3 g",
+            "4 g"
+        ],
+        "ingredientNames": [
+            "bataty",
+            "twaróg",
+            "awokado",
+            "czerwona cebula",
+            "oliwa",
+            "sól",
+            "pieprz",
+            "chili"
+        ],
+        "ingredientValues": [
+            "900",
+            "120",
+            "1",
+            "30",
+            "30",
+            "0.5",
+            "0.5",
+            "0.5"
+        ]
+    },
+    {
+        "name": "Blok czekoladowy",
+        "recipeUrl": "https://aniagotuje.pl/przepis/blok-czekoladowy-z-herbatnikami",
+        "diets": [
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2017/11/104261-v-1000x1000.jpg",
+        "macroValues": [
+            "456 kcal",
+            "39 g",
+            "32 g",
+            "12 g",
+            "28 g"
+        ],
+        "ingredientNames": [
+            "masło",
+            "mleko w proszku",
+            "kakao",
+            "cukier",
+            "mleko",
+            "herbatniki",
+            "rodzynki"
+        ],
+        "ingredientValues": [
+            "200",
+            "400",
+            "40",
+            "130",
+            "125",
+            "10",
+            "100"
+        ]
+    },
+    {
+        "name": "Jabłka pod kruszonką",
+        "recipeUrl": "https://aniagotuje.pl/przepis/jablka-pod-kruszonka",
+        "diets": [
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2018/09/127219-v-1000x1000.jpg",
+        "macroValues": [
+            "304 kcal",
+            "46 g",
+            "26 g",
+            "3 g",
+            "12 g"
+        ],
+        "ingredientNames": [
+            "jabłko",
+            "żurawina suszona",
+            "mąka pszenna",
+            "cukier",
+            "masło",
+            "cynamon"
+        ],
+        "ingredientValues": [
+            "2",
+            "60",
+            "150",
+            "100",
+            "100",
+            "8"
+        ]
+    },
+    {
+        "name": "Panna cotta",
+        "recipeUrl": "https://aniagotuje.pl/przepis/waniliowa-panna-cotta-z-musem-truskawkowym",
+        "diets": [
+            "bezglutenowa"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2019/11/1491361-v-1500x1500.jpg",
+        "macroValues": [
+            "141 kcal",
+            "12 g",
+            "11 g",
+            "3 g",
+            "9 g"
+        ],
+        "ingredientNames": [
+            "śmietanka 30%",
+            "mleko",
+            "cukier waniliowy",
+            "żelatyna",
+            "woda",
+            "truskawki",
+            "miód",
+            "sok z cytryny"
+        ],
+        "ingredientValues": [
+            "200",
+            "200",
+            "50",
+            "14",
+            "50",
+            "200",
+            "10",
+            "30"
+        ]
+    },
+    {
+        "name": "Crème brûlée",
+        "recipeUrl": "https://aniagotuje.pl/przepis/creme-brulee",
+        "diets": [
+            "bezglutenowa",
+            "niskowęglowodanowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2022/01/23919676-v-1500x1500.jpg",
+        "macroValues": [
+            "331 kcal",
+            "18 g",
+            "18 g",
+            "4 g",
+            "27 g"
+        ],
+        "ingredientNames": [
+            "śmietanka 30%",
+            "żółtko",
+            "cukier",
+            "laska wanilii",
+            "mięta",
+            "maliny",
+            "borówki",
+            "truskawki"
+        ],
+        "ingredientValues": [
+            "500",
+            "85",
+            "105",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    },
+    {
+        "name": "Smoothie bowl",
+        "recipeUrl": "https://aniagotuje.pl/przepis/smoothie-bowl",
+        "diets": [
+            "bezglutenowa",
+            "niskotłuszczowa",
+            "wegetariańska"
+        ],
+        "imageUrl": "https://cdn.aniagotuje.com/pictures/articles/2024/08/66113840-v-1500x1500.jpg",
+        "macroValues": [
+            "73 kcal",
+            "15 g",
+            "8 g",
+            "1 g",
+            "1 g"
+        ],
+        "ingredientNames": [
+            "truskawki",
+            "banan",
+            "mleko",
+            "granola",
+            "owoce"
+        ],
+        "ingredientValues": [
+            "300",
+            "200",
+            "30",
+            "20",
+            "0"
+        ]
+    }
+]

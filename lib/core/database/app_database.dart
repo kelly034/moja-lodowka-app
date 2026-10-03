@@ -73,7 +73,7 @@ class AppDatabase extends _$AppDatabase {
           );
         }
 
-        final productNames = await rootBundle.loadString("assets/fridge_products.txt");
+        final productNames = await rootBundle.loadString("assets/products.json");
 
         final companions = productNames
             .split("\n")
