@@ -16,16 +16,17 @@ class FridgeProductDataSourceImpl implements FridgeProductDataSource {
 
   @override
   Future<void> addProduct(int id, double value) async {
+    final currentItem = await (db.select(
+      db.fridgeProductsTable,
+    )..where((tbl) => tbl.id.equals(id))).getSingle();
 
-    final currentItem = await (db.select(db.fridgeProductsTable)
-      ..where((tbl) => tbl.id.equals(id)))
-        .getSingle();
-
-    await db.update(db.fridgeProductsTable).replace(
-      FridgeProductsTableCompanion(
-        id: Value(id),
-        value: Value(currentItem.value + value),
-      )
-    );
+    await db
+        .update(db.fridgeProductsTable)
+        .replace(
+          FridgeProductsTableCompanion(
+            id: Value(id),
+            value: Value(currentItem.value + value),
+          ),
+        );
   }
 }

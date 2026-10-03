@@ -43,5 +43,5 @@ Future<List<Recipe>> recipes(Ref ref) async {
 @riverpod
 Future<Recipe?> recipeById(Ref ref, int id) async {
   final getRecipeByIdUseCase = ref.watch(getRecipeByIdUseCaseProvider);
-  return await getRecipeByIdUseCase(id);
+  return await getRecipeByIdUseCase.call(id);
 }

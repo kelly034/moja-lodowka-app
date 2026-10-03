@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
+
 import '../../features/recipes/data/tables/recipe_table.dart';
 import '../../features/recipes/data/tables/recipe_ingredients_table.dart';
 import "../../features/recipes/data/tables/recipe_diets_table.dart";
@@ -12,7 +14,14 @@ import "../../features/fridge/data/tables/fridge_products_table.dart";
 
 part "app_database.g.dart";
 
-@DriftDatabase(tables: [RecipeTable, RecipeIngredientsTable, RecipeDietsTable, FridgeProductsTable])
+@DriftDatabase(
+  tables: [
+    RecipeTable,
+    RecipeIngredientsTable,
+    RecipeDietsTable,
+    FridgeProductsTable,
+  ],
+)
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -25,12 +34,14 @@ class AppDatabase extends _$AppDatabase {
       onCreate: (Migrator m) async {
         await m.createAll();
         await _seedDatabase();
-      }
+      },
     );
   }
 
   Future<void> _seedDatabase() async {
-    final String jsonString = await rootBundle.loadString("assets/recipes.json");
+    final String jsonString = await rootBundle.loadString(
+      "assets/recipes.json",
+    );
     final List<dynamic> jsonList = jsonDecode(jsonString);
 
     await transaction(() async {
@@ -47,11 +58,13 @@ class AppDatabase extends _$AppDatabase {
             carbohydrates: rawMacros[1],
             sugars: rawMacros[2],
             protein: rawMacros[3],
-            fat: rawMacros[4]
-          )
+            fat: rawMacros[4],
+          ),
         );
 
-        final ingredientNames = List<String>.from(item["ingredientNames"] ?? []);
+        final ingredientNames = List<String>.from(
+          item["ingredientNames"] ?? [],
+        );
         final ingredientValues = List<int>.from(item["ingredientValues"] ?? []);
         for (int i = 0; i < ingredientNames.length; i++) {
           await into(recipeIngredientsTable).insert(
@@ -59,21 +72,20 @@ class AppDatabase extends _$AppDatabase {
               recipeId: recipeId,
               name: ingredientNames[i],
               value: ingredientValues[i],
-            )
+            ),
           );
         }
 
         final dietNames = List<String>.from(item["diets"] ?? []);
-        for(final diet in dietNames) {
+        for (final diet in dietNames) {
           await into(recipeDietsTable).insert(
-            RecipeDietsTableCompanion.insert(
-              recipeId: recipeId,
-              name: diet,
-            )
+            RecipeDietsTableCompanion.insert(recipeId: recipeId, name: diet),
           );
         }
 
-        final productNames = await rootBundle.loadString("assets/products.json");
+        final productNames = await rootBundle.loadString(
+          "assets/products.json",
+        );
 
         final companions = productNames
             .split("\n")
@@ -81,7 +93,7 @@ class AppDatabase extends _$AppDatabase {
             .where((line) => line.isNotEmpty)
             .map((line) {
               final lastSpaceIndex = line.lastIndexOf(" ");
-              if(lastSpaceIndex == -1) {
+              if (lastSpaceIndex == -1) {
                 return FridgeProductsTableCompanion.insert(
                   name: line,
                   value: 0.0,
@@ -97,7 +109,8 @@ class AppDatabase extends _$AppDatabase {
                 value: 0.0,
                 unit: unit,
               );
-        }).toList();
+            })
+            .toList();
 
         await batch((batch) {
           batch.insertAll(fridgeProductsTable, companions);

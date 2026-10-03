@@ -7,12 +7,16 @@ import '../../data/repositories/fridge_product_repository_impl.dart';
 import '../../domain/repositories/fridge_product_repository.dart';
 import '../../domain/usecases/get_all_products_use_case.dart';
 
-final fridgeProductLocalDataSourceProvider = Provider<FridgeProductDataSource>((ref) {
+final fridgeProductLocalDataSourceProvider = Provider<FridgeProductDataSource>((
+  ref,
+) {
   final database = ref.watch(databaseProvider);
   return FridgeProductDataSourceImpl(database);
 });
 
-final fridgeProductRepositoryProvider = Provider<FridgeProductRepository>((ref) {
+final fridgeProductRepositoryProvider = Provider<FridgeProductRepository>((
+  ref,
+) {
   final localDataSource = ref.watch(fridgeProductLocalDataSourceProvider);
   return FridgeProductRepositoryImpl(localDataSource);
 });

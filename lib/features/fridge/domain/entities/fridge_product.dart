@@ -4,5 +4,10 @@ abstract class FridgeProduct {
   final double value;
   final String unit;
 
-  FridgeProduct({required this.id, required this.name, required this.value, required this.unit});
+  FridgeProduct({
+    required this.id,
+    required this.name,
+    required this.value,
+    required this.unit,
+  });
 }

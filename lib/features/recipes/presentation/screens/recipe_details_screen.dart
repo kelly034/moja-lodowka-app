@@ -21,8 +21,11 @@ class RecipeDetailsScreen extends ConsumerWidget {
           appBar: AppBar(
             //backgroundColor: Theme.of(context).colorScheme.primary,
             title: Text(
-              recipe.name,
-              style: TextStyle(color: Theme.of(context).colorScheme.onPrimary, fontWeight: FontWeight.bold),
+              recipe!.name,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onPrimary,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             centerTitle: true,
             leading: IconButton(
@@ -36,7 +39,10 @@ class RecipeDetailsScreen extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
                   child: Card(
                     elevation: 4,
                     clipBehavior: Clip.antiAlias,
@@ -44,7 +50,11 @@ class RecipeDetailsScreen extends ConsumerWidget {
                       tag: recipe.id,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.network(recipe.imageUrl, fit: BoxFit.cover, height: 300),
+                        child: Image.network(
+                          recipe.imageUrl,
+                          fit: BoxFit.cover,
+                          height: 300,
+                        ),
                       ),
                     ),
                   ),
@@ -66,13 +76,19 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).colorScheme.onPrimary,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimary,
                                 ),
                               ),
                               const SizedBox(height: 8),
                               Text(
                                 "lista składników",
-                                style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+                                style: TextStyle(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimary,
+                                ),
                                 textAlign: TextAlign.center,
                               ),
                             ],
@@ -93,8 +109,7 @@ class RecipeDetailsScreen extends ConsumerWidget {
 
       error: (error, stackTrace) {
         return Text("wystąpił błąd: $error, $stackTrace");
-      }
+      },
     );
-
   }
 }
