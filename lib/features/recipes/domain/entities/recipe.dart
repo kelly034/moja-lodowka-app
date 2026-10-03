@@ -5,6 +5,7 @@ class Recipe {
   final List<int> macroValues;
   final String diet;
   final String imageUrl;
+  final String recipeUrl;
 
   Recipe({
     required this.id,
@@ -12,6 +13,7 @@ class Recipe {
     required this.ingredientNames,
     required this.macroValues,
     required this.diet,
-    required this.imageUrl
+    required this.imageUrl,
+    required this.recipeUrl,
   });
 }

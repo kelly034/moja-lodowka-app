@@ -11,4 +11,5 @@ class RecipeTable extends Table {
   IntColumn get sugars => integer()();
   IntColumn get protein => integer()();
   IntColumn get fat => integer()();
+  TextColumn get recipeUrl => text()();
 }

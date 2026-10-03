@@ -9,6 +9,7 @@ class RecipeModel extends Recipe {
     required super.macroValues,
     required super.diet,
     required super.imageUrl,
+    required super.recipeUrl,
   });
 
   factory RecipeModel.fromDrift(
@@ -27,6 +28,7 @@ class RecipeModel extends Recipe {
       ],
       diet: recipeData.diet,
       imageUrl: recipeData.imageUrl,
+      recipeUrl: recipeData.recipeUrl,
     );
   }
 }

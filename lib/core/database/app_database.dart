@@ -40,6 +40,7 @@ class AppDatabase extends _$AppDatabase {
             name: item["name"] as String,
             diet: item["diet"] as String? ?? "",
             imageUrl: item["imageUrl"] as String,
+            recipeUrl: item["recipeUrl"] as String,
             calories: rawMacros[0],
             carbohydrates: rawMacros[1],
             sugars: rawMacros[2],

@@ -102,6 +102,17 @@ class $RecipeTableTable extends RecipeTable
     type: DriftSqlType.int,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _recipeUrlMeta = const VerificationMeta(
+    'recipeUrl',
+  );
+  @override
+  late final GeneratedColumn<String> recipeUrl = GeneratedColumn<String>(
+    'recipe_url',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -113,6 +124,7 @@ class $RecipeTableTable extends RecipeTable
     sugars,
     protein,
     fat,
+    recipeUrl,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -196,6 +208,14 @@ class $RecipeTableTable extends RecipeTable
     } else if (isInserting) {
       context.missing(_fatMeta);
     }
+    if (data.containsKey('recipe_url')) {
+      context.handle(
+        _recipeUrlMeta,
+        recipeUrl.isAcceptableOrUnknown(data['recipe_url']!, _recipeUrlMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_recipeUrlMeta);
+    }
     return context;
   }
 
@@ -241,6 +261,10 @@ class $RecipeTableTable extends RecipeTable
         DriftSqlType.int,
         data['${effectivePrefix}fat'],
       )!,
+      recipeUrl: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}recipe_url'],
+      )!,
     );
   }
 
@@ -260,6 +284,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
   final int sugars;
   final int protein;
   final int fat;
+  final String recipeUrl;
   const RecipeTableData({
     required this.id,
     required this.name,
@@ -270,6 +295,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
     required this.sugars,
     required this.protein,
     required this.fat,
+    required this.recipeUrl,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -283,6 +309,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
     map['sugars'] = Variable<int>(sugars);
     map['protein'] = Variable<int>(protein);
     map['fat'] = Variable<int>(fat);
+    map['recipe_url'] = Variable<String>(recipeUrl);
     return map;
   }
 
@@ -297,6 +324,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
       sugars: Value(sugars),
       protein: Value(protein),
       fat: Value(fat),
+      recipeUrl: Value(recipeUrl),
     );
   }
 
@@ -315,6 +343,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
       sugars: serializer.fromJson<int>(json['sugars']),
       protein: serializer.fromJson<int>(json['protein']),
       fat: serializer.fromJson<int>(json['fat']),
+      recipeUrl: serializer.fromJson<String>(json['recipeUrl']),
     );
   }
   @override
@@ -330,6 +359,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
       'sugars': serializer.toJson<int>(sugars),
       'protein': serializer.toJson<int>(protein),
       'fat': serializer.toJson<int>(fat),
+      'recipeUrl': serializer.toJson<String>(recipeUrl),
     };
   }
 
@@ -343,6 +373,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
     int? sugars,
     int? protein,
     int? fat,
+    String? recipeUrl,
   }) => RecipeTableData(
     id: id ?? this.id,
     name: name ?? this.name,
@@ -353,6 +384,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
     sugars: sugars ?? this.sugars,
     protein: protein ?? this.protein,
     fat: fat ?? this.fat,
+    recipeUrl: recipeUrl ?? this.recipeUrl,
   );
   RecipeTableData copyWithCompanion(RecipeTableCompanion data) {
     return RecipeTableData(
@@ -367,6 +399,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
       sugars: data.sugars.present ? data.sugars.value : this.sugars,
       protein: data.protein.present ? data.protein.value : this.protein,
       fat: data.fat.present ? data.fat.value : this.fat,
+      recipeUrl: data.recipeUrl.present ? data.recipeUrl.value : this.recipeUrl,
     );
   }
 
@@ -381,7 +414,8 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
           ..write('carbohydrates: $carbohydrates, ')
           ..write('sugars: $sugars, ')
           ..write('protein: $protein, ')
-          ..write('fat: $fat')
+          ..write('fat: $fat, ')
+          ..write('recipeUrl: $recipeUrl')
           ..write(')'))
         .toString();
   }
@@ -397,6 +431,7 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
     sugars,
     protein,
     fat,
+    recipeUrl,
   );
   @override
   bool operator ==(Object other) =>
@@ -410,7 +445,8 @@ class RecipeTableData extends DataClass implements Insertable<RecipeTableData> {
           other.carbohydrates == this.carbohydrates &&
           other.sugars == this.sugars &&
           other.protein == this.protein &&
-          other.fat == this.fat);
+          other.fat == this.fat &&
+          other.recipeUrl == this.recipeUrl);
 }
 
 class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
@@ -423,6 +459,7 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
   final Value<int> sugars;
   final Value<int> protein;
   final Value<int> fat;
+  final Value<String> recipeUrl;
   const RecipeTableCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
@@ -433,6 +470,7 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     this.sugars = const Value.absent(),
     this.protein = const Value.absent(),
     this.fat = const Value.absent(),
+    this.recipeUrl = const Value.absent(),
   });
   RecipeTableCompanion.insert({
     this.id = const Value.absent(),
@@ -444,6 +482,7 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     required int sugars,
     required int protein,
     required int fat,
+    required String recipeUrl,
   }) : name = Value(name),
        diet = Value(diet),
        imageUrl = Value(imageUrl),
@@ -451,7 +490,8 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
        carbohydrates = Value(carbohydrates),
        sugars = Value(sugars),
        protein = Value(protein),
-       fat = Value(fat);
+       fat = Value(fat),
+       recipeUrl = Value(recipeUrl);
   static Insertable<RecipeTableData> custom({
     Expression<int>? id,
     Expression<String>? name,
@@ -462,6 +502,7 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     Expression<int>? sugars,
     Expression<int>? protein,
     Expression<int>? fat,
+    Expression<String>? recipeUrl,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -473,6 +514,7 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
       if (sugars != null) 'sugars': sugars,
       if (protein != null) 'protein': protein,
       if (fat != null) 'fat': fat,
+      if (recipeUrl != null) 'recipe_url': recipeUrl,
     });
   }
 
@@ -486,6 +528,7 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     Value<int>? sugars,
     Value<int>? protein,
     Value<int>? fat,
+    Value<String>? recipeUrl,
   }) {
     return RecipeTableCompanion(
       id: id ?? this.id,
@@ -497,6 +540,7 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
       sugars: sugars ?? this.sugars,
       protein: protein ?? this.protein,
       fat: fat ?? this.fat,
+      recipeUrl: recipeUrl ?? this.recipeUrl,
     );
   }
 
@@ -530,6 +574,9 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
     if (fat.present) {
       map['fat'] = Variable<int>(fat.value);
     }
+    if (recipeUrl.present) {
+      map['recipe_url'] = Variable<String>(recipeUrl.value);
+    }
     return map;
   }
 
@@ -544,7 +591,8 @@ class RecipeTableCompanion extends UpdateCompanion<RecipeTableData> {
           ..write('carbohydrates: $carbohydrates, ')
           ..write('sugars: $sugars, ')
           ..write('protein: $protein, ')
-          ..write('fat: $fat')
+          ..write('fat: $fat, ')
+          ..write('recipeUrl: $recipeUrl')
           ..write(')'))
         .toString();
   }
@@ -836,6 +884,7 @@ typedef $$RecipeTableTableCreateCompanionBuilder =
       required int sugars,
       required int protein,
       required int fat,
+      required String recipeUrl,
     });
 typedef $$RecipeTableTableUpdateCompanionBuilder =
     RecipeTableCompanion Function({
@@ -848,6 +897,7 @@ typedef $$RecipeTableTableUpdateCompanionBuilder =
       Value<int> sugars,
       Value<int> protein,
       Value<int> fat,
+      Value<String> recipeUrl,
     });
 
 final class $$RecipeTableTableReferences
@@ -934,6 +984,11 @@ class $$RecipeTableTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
+  ColumnFilters<String> get recipeUrl => $composableBuilder(
+    column: $table.recipeUrl,
+    builder: (column) => ColumnFilters(column),
+  );
+
   Expression<bool> recipeIngredientsTableRefs(
     Expression<bool> Function($$RecipeIngredientsTableTableFilterComposer f) f,
   ) {
@@ -1014,6 +1069,11 @@ class $$RecipeTableTableOrderingComposer
     column: $table.fat,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get recipeUrl => $composableBuilder(
+    column: $table.recipeUrl,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$RecipeTableTableAnnotationComposer
@@ -1053,6 +1113,9 @@ class $$RecipeTableTableAnnotationComposer
 
   GeneratedColumn<int> get fat =>
       $composableBuilder(column: $table.fat, builder: (column) => column);
+
+  GeneratedColumn<String> get recipeUrl =>
+      $composableBuilder(column: $table.recipeUrl, builder: (column) => column);
 
   Expression<T> recipeIngredientsTableRefs<T extends Object>(
     Expression<T> Function($$RecipeIngredientsTableTableAnnotationComposer a) f,
@@ -1118,6 +1181,7 @@ class $$RecipeTableTableTableManager
                 Value<int> sugars = const Value.absent(),
                 Value<int> protein = const Value.absent(),
                 Value<int> fat = const Value.absent(),
+                Value<String> recipeUrl = const Value.absent(),
               }) => RecipeTableCompanion(
                 id: id,
                 name: name,
@@ -1128,6 +1192,7 @@ class $$RecipeTableTableTableManager
                 sugars: sugars,
                 protein: protein,
                 fat: fat,
+                recipeUrl: recipeUrl,
               ),
           createCompanionCallback:
               ({
@@ -1140,6 +1205,7 @@ class $$RecipeTableTableTableManager
                 required int sugars,
                 required int protein,
                 required int fat,
+                required String recipeUrl,
               }) => RecipeTableCompanion.insert(
                 id: id,
                 name: name,
@@ -1150,6 +1216,7 @@ class $$RecipeTableTableTableManager
                 sugars: sugars,
                 protein: protein,
                 fat: fat,
+                recipeUrl: recipeUrl,
               ),
           withReferenceMapper: (p0) => p0
               .map(
