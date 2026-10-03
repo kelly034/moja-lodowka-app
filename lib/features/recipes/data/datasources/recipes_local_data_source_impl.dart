@@ -51,6 +51,29 @@ class RecipesLocalDataSourceImpl implements RecipesLocalDataSource {
       );
     }).toList();
   }
+
+  @override
+  Future<RecipeModel?> getRecipeById(int id) async {
+    final recipeRow = await (db.select(db.recipeTable)
+      ..where((tbl) => tbl.id.equals(id)))
+        .getSingleOrNull();
+
+    if (recipeRow == null) return null;
+
+    final ingredientRows = await (db.select(db.recipeIngredientsTable)
+      ..where((tbl) => tbl.recipeId.equals(id)))
+        .get();
+
+    final dietRows = await (db.select(db.recipeDietsTable)
+      ..where((tbl) => tbl.recipeId.equals(id)))
+        .get();
+
+    return RecipeModel.fromDrift(
+      recipeRow,
+      ingredientRows,
+      dietRows,
+    );
+  }
 }
 
 class _RecipeDataHolder {

@@ -11,4 +11,9 @@ class RecipesRepositoryImpl implements RecipesRepository {
   Future<List<Recipe>> getAllRecipes() async {
     return await localDataSource.getAllRecipes();
   }
+
+  @override
+  Future<Recipe?> getRecipeById(int id) async {
+    return await localDataSource.getRecipeById(id);
+  }
 }

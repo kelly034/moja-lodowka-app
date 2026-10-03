@@ -10,4 +10,9 @@ class FridgeProductRepositoryImpl implements FridgeProductRepository {
   Future<List<FridgeProduct>> getAllProducts() async {
     return await localDataSource.getAllProducts();
   }
+
+  @override
+  Future<void> addProduct(int id, double value) async {
+    return await localDataSource.addProduct(id, value);
+  }
 }
