@@ -8,10 +8,11 @@ import 'package:path/path.dart' as p;
 import '../../features/recipes/data/tables/recipe_table.dart';
 import '../../features/recipes/data/tables/recipe_ingredients_table.dart';
 import "../../features/recipes/data/tables/recipe_diets_table.dart";
+import "../../features/fridge/data/tables/fridge_products_table.dart";
 
 part "app_database.g.dart";
 
-@DriftDatabase(tables: [RecipeTable, RecipeIngredientsTable, RecipeDietsTable])
+@DriftDatabase(tables: [RecipeTable, RecipeIngredientsTable, RecipeDietsTable, FridgeProductsTable])
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
@@ -71,6 +72,36 @@ class AppDatabase extends _$AppDatabase {
             )
           );
         }
+
+        final productNames = await rootBundle.loadString("assets/fridge_products.txt");
+
+        final companions = productNames
+            .split("\n")
+            .map((line) => line.trim())
+            .where((line) => line.isNotEmpty)
+            .map((line) {
+              final lastSpaceIndex = line.lastIndexOf(" ");
+              if(lastSpaceIndex == -1) {
+                return FridgeProductsTableCompanion.insert(
+                  name: line,
+                  value: 0.0,
+                  unit: "szt",
+                );
+              }
+
+              final name = line.substring(0, lastSpaceIndex).trim();
+              final unit = line.substring(lastSpaceIndex + 1).trim();
+
+              return FridgeProductsTableCompanion.insert(
+                name: name,
+                value: 0.0,
+                unit: unit,
+              );
+        }).toList();
+
+        await batch((batch) {
+          batch.insertAll(fridgeProductsTable, companions);
+        });
       }
     });
   }

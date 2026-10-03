@@ -1157,6 +1157,306 @@ class RecipeDietsTableCompanion extends UpdateCompanion<RecipeDietsTableData> {
   }
 }
 
+class $FridgeProductsTableTable extends FridgeProductsTable
+    with TableInfo<$FridgeProductsTableTable, FridgeProductsTableData> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FridgeProductsTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _valueMeta = const VerificationMeta('value');
+  @override
+  late final GeneratedColumn<double> value = GeneratedColumn<double>(
+    'value',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _unitMeta = const VerificationMeta('unit');
+  @override
+  late final GeneratedColumn<String> unit = GeneratedColumn<String>(
+    'unit',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, name, value, unit];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'fridge_products_table';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FridgeProductsTableData> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('value')) {
+      context.handle(
+        _valueMeta,
+        value.isAcceptableOrUnknown(data['value']!, _valueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueMeta);
+    }
+    if (data.containsKey('unit')) {
+      context.handle(
+        _unitMeta,
+        unit.isAcceptableOrUnknown(data['unit']!, _unitMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  FridgeProductsTableData map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FridgeProductsTableData(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      value: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}value'],
+      )!,
+      unit: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unit'],
+      )!,
+    );
+  }
+
+  @override
+  $FridgeProductsTableTable createAlias(String alias) {
+    return $FridgeProductsTableTable(attachedDatabase, alias);
+  }
+}
+
+class FridgeProductsTableData extends DataClass
+    implements Insertable<FridgeProductsTableData> {
+  final int id;
+  final String name;
+  final double value;
+  final String unit;
+  const FridgeProductsTableData({
+    required this.id,
+    required this.name,
+    required this.value,
+    required this.unit,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['name'] = Variable<String>(name);
+    map['value'] = Variable<double>(value);
+    map['unit'] = Variable<String>(unit);
+    return map;
+  }
+
+  FridgeProductsTableCompanion toCompanion(bool nullToAbsent) {
+    return FridgeProductsTableCompanion(
+      id: Value(id),
+      name: Value(name),
+      value: Value(value),
+      unit: Value(unit),
+    );
+  }
+
+  factory FridgeProductsTableData.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FridgeProductsTableData(
+      id: serializer.fromJson<int>(json['id']),
+      name: serializer.fromJson<String>(json['name']),
+      value: serializer.fromJson<double>(json['value']),
+      unit: serializer.fromJson<String>(json['unit']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'name': serializer.toJson<String>(name),
+      'value': serializer.toJson<double>(value),
+      'unit': serializer.toJson<String>(unit),
+    };
+  }
+
+  FridgeProductsTableData copyWith({
+    int? id,
+    String? name,
+    double? value,
+    String? unit,
+  }) => FridgeProductsTableData(
+    id: id ?? this.id,
+    name: name ?? this.name,
+    value: value ?? this.value,
+    unit: unit ?? this.unit,
+  );
+  FridgeProductsTableData copyWithCompanion(FridgeProductsTableCompanion data) {
+    return FridgeProductsTableData(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      value: data.value.present ? data.value.value : this.value,
+      unit: data.unit.present ? data.unit.value : this.unit,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FridgeProductsTableData(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('value: $value, ')
+          ..write('unit: $unit')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, name, value, unit);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FridgeProductsTableData &&
+          other.id == this.id &&
+          other.name == this.name &&
+          other.value == this.value &&
+          other.unit == this.unit);
+}
+
+class FridgeProductsTableCompanion
+    extends UpdateCompanion<FridgeProductsTableData> {
+  final Value<int> id;
+  final Value<String> name;
+  final Value<double> value;
+  final Value<String> unit;
+  const FridgeProductsTableCompanion({
+    this.id = const Value.absent(),
+    this.name = const Value.absent(),
+    this.value = const Value.absent(),
+    this.unit = const Value.absent(),
+  });
+  FridgeProductsTableCompanion.insert({
+    this.id = const Value.absent(),
+    required String name,
+    required double value,
+    required String unit,
+  }) : name = Value(name),
+       value = Value(value),
+       unit = Value(unit);
+  static Insertable<FridgeProductsTableData> custom({
+    Expression<int>? id,
+    Expression<String>? name,
+    Expression<double>? value,
+    Expression<String>? unit,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (name != null) 'name': name,
+      if (value != null) 'value': value,
+      if (unit != null) 'unit': unit,
+    });
+  }
+
+  FridgeProductsTableCompanion copyWith({
+    Value<int>? id,
+    Value<String>? name,
+    Value<double>? value,
+    Value<String>? unit,
+  }) {
+    return FridgeProductsTableCompanion(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      value: value ?? this.value,
+      unit: unit ?? this.unit,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (value.present) {
+      map['value'] = Variable<double>(value.value);
+    }
+    if (unit.present) {
+      map['unit'] = Variable<String>(unit.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FridgeProductsTableCompanion(')
+          ..write('id: $id, ')
+          ..write('name: $name, ')
+          ..write('value: $value, ')
+          ..write('unit: $unit')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -1166,6 +1466,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $RecipeDietsTableTable recipeDietsTable = $RecipeDietsTableTable(
     this,
   );
+  late final $FridgeProductsTableTable fridgeProductsTable =
+      $FridgeProductsTableTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -1174,6 +1476,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     recipeTable,
     recipeIngredientsTable,
     recipeDietsTable,
+    fridgeProductsTable,
   ];
 }
 
@@ -2282,6 +2585,209 @@ typedef $$RecipeDietsTableTableProcessedTableManager =
       RecipeDietsTableData,
       PrefetchHooks Function({bool recipeId})
     >;
+typedef $$FridgeProductsTableTableCreateCompanionBuilder =
+    FridgeProductsTableCompanion Function({
+      Value<int> id,
+      required String name,
+      required double value,
+      required String unit,
+    });
+typedef $$FridgeProductsTableTableUpdateCompanionBuilder =
+    FridgeProductsTableCompanion Function({
+      Value<int> id,
+      Value<String> name,
+      Value<double> value,
+      Value<String> unit,
+    });
+
+class $$FridgeProductsTableTableFilterComposer
+    extends Composer<_$AppDatabase, $FridgeProductsTableTable> {
+  $$FridgeProductsTableTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$FridgeProductsTableTableOrderingComposer
+    extends Composer<_$AppDatabase, $FridgeProductsTableTable> {
+  $$FridgeProductsTableTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FridgeProductsTableTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FridgeProductsTableTable> {
+  $$FridgeProductsTableTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<double> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
+
+  GeneratedColumn<String> get unit =>
+      $composableBuilder(column: $table.unit, builder: (column) => column);
+}
+
+class $$FridgeProductsTableTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FridgeProductsTableTable,
+          FridgeProductsTableData,
+          $$FridgeProductsTableTableFilterComposer,
+          $$FridgeProductsTableTableOrderingComposer,
+          $$FridgeProductsTableTableAnnotationComposer,
+          $$FridgeProductsTableTableCreateCompanionBuilder,
+          $$FridgeProductsTableTableUpdateCompanionBuilder,
+          (
+            FridgeProductsTableData,
+            BaseReferences<
+              _$AppDatabase,
+              $FridgeProductsTableTable,
+              FridgeProductsTableData
+            >,
+          ),
+          FridgeProductsTableData,
+          PrefetchHooks Function()
+        > {
+  $$FridgeProductsTableTableTableManager(
+    _$AppDatabase db,
+    $FridgeProductsTableTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FridgeProductsTableTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FridgeProductsTableTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$FridgeProductsTableTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<double> value = const Value.absent(),
+                Value<String> unit = const Value.absent(),
+              }) => FridgeProductsTableCompanion(
+                id: id,
+                name: name,
+                value: value,
+                unit: unit,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String name,
+                required double value,
+                required String unit,
+              }) => FridgeProductsTableCompanion.insert(
+                id: id,
+                name: name,
+                value: value,
+                unit: unit,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<
+                    $FridgeProductsTableTable,
+                    FridgeProductsTableData
+                  >(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $FridgeProductsTableTable,
+                    FridgeProductsTableData
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$FridgeProductsTableTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FridgeProductsTableTable,
+      FridgeProductsTableData,
+      $$FridgeProductsTableTableFilterComposer,
+      $$FridgeProductsTableTableOrderingComposer,
+      $$FridgeProductsTableTableAnnotationComposer,
+      $$FridgeProductsTableTableCreateCompanionBuilder,
+      $$FridgeProductsTableTableUpdateCompanionBuilder,
+      (
+        FridgeProductsTableData,
+        BaseReferences<
+          _$AppDatabase,
+          $FridgeProductsTableTable,
+          FridgeProductsTableData
+        >,
+      ),
+      FridgeProductsTableData,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -2295,4 +2801,6 @@ class $AppDatabaseManager {
       );
   $$RecipeDietsTableTableTableManager get recipeDietsTable =>
       $$RecipeDietsTableTableTableManager(_db, _db.recipeDietsTable);
+  $$FridgeProductsTableTableTableManager get fridgeProductsTable =>
+      $$FridgeProductsTableTableTableManager(_db, _db.fridgeProductsTable);
 }
