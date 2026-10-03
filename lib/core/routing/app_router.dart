@@ -6,6 +6,6 @@ import "routes.dart";
 final goRouter = GoRouter(
   initialLocation: "/",
   routes: [
-    GoRoute(path: Routes.home, builder: (context, state) => const HomeScreen()),
+    GoRoute(path: Routes.home, builder: (context, state) => HomeScreen()),
     ]
 );
