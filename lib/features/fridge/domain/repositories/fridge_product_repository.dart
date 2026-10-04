@@ -1,6 +1,8 @@
+import '../../../recipes/domain/entities/recipe.dart';
 import '../entities/fridge_product.dart';
 
 abstract class FridgeProductRepository {
   Future<List<FridgeProduct>> getAllProducts();
   Future<void> addProduct(int id, double value);
+  Future<void> makeMeal(Recipe recipe);
 }
