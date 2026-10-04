@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import "package:go_router/go_router.dart";
+import "package:moja_lodowka_app/core/utils/open_in_browser.dart";
 
 import "../../../fridge/presentation/providers/fridge_product_providers.dart";
 import "../providers/recipes_providers.dart";
@@ -15,7 +16,7 @@ class RecipeDetailsScreen extends ConsumerWidget {
     final recipeId = int.parse(id); // bo go_router przekazuje url string
     final recipeAsync = ref.watch(recipeByIdProvider(recipeId));
     final recipeProductsAsync = ref.watch(recipeProductsProvider(recipeId));
-
+    final makeMeal = ref.watch(makeMealUseCaseProvider);
     return recipeAsync.when(
       data: (recipe) {
         return Scaffold(
@@ -35,6 +36,20 @@ class RecipeDetailsScreen extends ConsumerWidget {
               color: Theme.of(context).colorScheme.onPrimary,
               onPressed: () => context.pop(),
             ),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.link),
+                color: Theme.of(context).colorScheme.onPrimary,
+                onPressed: () {
+                  try {
+                    openInBrowser(recipe.recipeUrl);
+                  } catch (e) {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text(e.toString())));
+                  }
+                },
+              ),
+            ],
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -74,8 +89,9 @@ class RecipeDetailsScreen extends ConsumerWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
+
                               Text(
-                                "Składniki",
+                                "Składniki:",
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -83,7 +99,7 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                       .colorScheme
                                       .onPrimary,
                                 ),
-                                textAlign: TextAlign.center,
+                                textAlign: TextAlign.left,
                               ),
                               const SizedBox(height: 8),
                               ...recipeProductsAsync.when(
@@ -103,10 +119,35 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                           color: Theme.of(context)
                                               .colorScheme
                                               .onPrimary,
+                                          fontWeight: FontWeight.w600
                                         ),
                                         textAlign: TextAlign.left,
                                       ),
                                     ),
+                                  Container(
+                                    height: 1,
+                                    width: double.infinity,
+                                    margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.onPrimary, borderRadius: BorderRadius.circular(10)),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.info_outline, color: Theme.of(context).colorScheme.onPrimary, size: 28),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: Text("Listę kroków możesz podejrzeć klikając w prawym górnym rogu",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w600,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onPrimary,
+
+
+                                            )),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                                 loading: () => [
                                   const Padding(
@@ -126,6 +167,40 @@ class RecipeDetailsScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          try {
+                            await makeMeal.call(recipe);
+                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("Posiłek wykonany, produkty zostały odjęte z lodówki"),
+                                ),
+                              );
+                              //ref.invalidate(allProductsProvider);
+                            }
+                          } catch (e) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    "Nie masz wystarczająco składników w lodówce"),
+                                  ),
+                                );
+                            }
+                          },
+                        child: Text("Zrób posiłek", style: TextStyle(color: Theme.of(context).colorScheme.onPrimary, fontSize: 18)),
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(200, 60),
+                        )
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

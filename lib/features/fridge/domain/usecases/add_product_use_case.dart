@@ -6,11 +6,11 @@ class AddProductUseCase {
   AddProductUseCase(this.repository);
 
   Future<void> call(int? id, double? value) async {
-    if(id == null) {
+    if (id == null) {
       throw ArgumentError("Niepoprawny produkt.");
     }
 
-    if(value == null || value <= 0) {
+    if (value == null || value <= 0) {
       throw ArgumentError("Niepoprawna ilość produktu.");
     }
 
