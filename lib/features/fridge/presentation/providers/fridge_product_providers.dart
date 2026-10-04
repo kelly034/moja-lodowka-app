@@ -1,4 +1,4 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:moja_lodowka_app/features/fridge/domain/usecases/get_recipe_products_use_case.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

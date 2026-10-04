@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../domain/entities/fridge_product.dart';
 import '../providers/fridge_product_providers.dart';
 
-class FridgeAddProductScreen extends ConsumerWidget {
+class FridgeAddProductScreen extends HookConsumerWidget {
   static const route = "add_product";
 
   const FridgeAddProductScreen({super.key});
@@ -16,8 +17,8 @@ class FridgeAddProductScreen extends ConsumerWidget {
     final addProduct = ref.watch(addProductUseCaseProvider);
     final productsAsync = ref.watch(allProductsProvider);
 
-    FridgeProduct? selectedProduct;
-    final amountController = TextEditingController();
+    final selectedProduct = useState<FridgeProduct?>(null);
+    final amountController = useTextEditingController();
     return productsAsync.when(
       data: (products) {
         return Scaffold(
@@ -39,7 +40,7 @@ class FridgeAddProductScreen extends ConsumerWidget {
                     );
                   },
                   onSelected: (FridgeProduct selection) {
-                    selectedProduct = selection;
+                    selectedProduct.value = selection;
                   },
                   fieldViewBuilder:
                       (
@@ -64,23 +65,37 @@ class FridgeAddProductScreen extends ConsumerWidget {
                 child: TextFormField(
                   controller: amountController,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(labelText: "Ilość")
+                  decoration: const InputDecoration(labelText: "Ilość"),
                 ),
               ),
               ElevatedButton(
-                  onPressed: () async {
-                final amount = double.tryParse(amountController.text) ?? 0.0;
+                onPressed: () async {
+                  final amount = double.tryParse(amountController.text) ?? 0.0;
 
-                if (selectedProduct != null && amount > 0) {
-                  await addProduct.call(selectedProduct!.id, amount);
+                  if (selectedProduct.value != null && amount > 0) {
+                    await addProduct.call(selectedProduct.value!.id, amount);
 
-                  //ref.invalidate(allProductsProvider);
-                  if(context.mounted) {
-                    context.pop();
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Dodano produkt")),
+                      );
+                      ref.invalidate(allProductsProvider);
+                      context.pop();
+                    } else {
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              "Wybierz produkt z listy i podaj poprawną ilość",
+                            ),
+                          ),
+                        );
+                      }
+                    }
                   }
-                }
-              },
-                  child: Text("Dodaj"))
+                },
+                child: Text("Dodaj"),
+              ),
             ],
           ),
         );
