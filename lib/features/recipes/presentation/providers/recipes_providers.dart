@@ -1,8 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import "package:riverpod_annotation/riverpod_annotation.dart";
 
-import '../../../../core/database/app_database.dart';
-
 import '../../../../core/providers/database_provider.dart';
 import '../../../fridge/domain/entities/fridge_product.dart';
 import '../../../fridge/presentation/providers/fridge_product_providers.dart';
@@ -12,7 +10,6 @@ import '../../data/repositories/recipes_repository_impl.dart';
 
 import '../../domain/entities/recipe.dart';
 import '../../domain/repositories/recipes_repository.dart';
-import '../../domain/usecases/check_availability_use_case.dart';
 import '../../domain/usecases/get_all_recipes_use_case.dart';
 import '../../domain/usecases/get_recipe_by_id_use_case.dart';
 
@@ -36,11 +33,6 @@ final getRecipesUseCaseProvider = Provider<GetAllRecipesUseCase>((ref) {
 final getRecipeByIdUseCaseProvider = Provider<GetRecipeByIdUseCase>((ref) {
   final repository = ref.watch(recipesRepositoryProvider);
   return GetRecipeByIdUseCase(repository);
-});
-
-final checkAvailabilityUseCaseProvider = Provider<CheckAvailabilityUseCase>((ref) {
-  final repository = ref.watch(fridgeProductRepositoryProvider);
-  return CheckAvailabilityUseCase(repository);
 });
 
 @riverpod
