@@ -27,9 +27,11 @@ class AppTheme {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.deepPurple[300],
           foregroundColor: Colors.grey[100],
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        )
-      )
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      ),
     );
   }
 

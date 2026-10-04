@@ -7,19 +7,19 @@ class MakeMealUseCase {
 
   Future<void> call(Recipe recipe) async {
     final available = await checkAvailability(repository, recipe);
-    if(available) {
+    if (available) {
       return await repository.makeMeal(recipe);
-    }
-    else {
+    } else {
       throw StateError("Brak potrzebnych składników w lodówce.");
     }
   }
 }
 
-Future<bool> checkAvailability(FridgeProductRepository repository, Recipe recipe) async {
-  final fridgeProducts = await repository
-      .getAllProducts()
-      .first;
+Future<bool> checkAvailability(
+  FridgeProductRepository repository,
+  Recipe recipe,
+) async {
+  final fridgeProducts = await repository.getAllProducts().first;
 
   final fridgeMap = {
     for (final product in fridgeProducts) product.name: product.value,

@@ -89,7 +89,6 @@ class RecipeDetailsScreen extends ConsumerWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-
                               Text(
                                 "Składniki:",
                                 style: TextStyle(
@@ -119,7 +118,7 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                           color: Theme.of(context)
                                               .colorScheme
                                               .onPrimary,
-                                          fontWeight: FontWeight.w600
+                                          fontWeight: FontWeight.w600,
                                         ),
                                         textAlign: TextAlign.left,
                                       ),
@@ -127,24 +126,38 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                   Container(
                                     height: 1,
                                     width: double.infinity,
-                                    margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                                    decoration: BoxDecoration(color: Theme.of(context).colorScheme.onPrimary, borderRadius: BorderRadius.circular(10)),
+                                    margin: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 8,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
                                   Row(
                                     children: [
-                                      Icon(Icons.info_outline, color: Theme.of(context).colorScheme.onPrimary, size: 28),
+                                      Icon(
+                                        Icons.info_outline,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onPrimary,
+                                        size: 28,
+                                      ),
                                       const SizedBox(width: 8),
                                       Expanded(
-                                        child: Text("Listę kroków możesz podejrzeć klikając w prawym górnym rogu",
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w600,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimary,
-
-
-                                            )),
+                                        child: Text(
+                                          "Listę kroków możesz podejrzeć klikając ikonę w prawym górnym rogu",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onPrimary,
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -180,24 +193,33 @@ class RecipeDetailsScreen extends ConsumerWidget {
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                  content: Text("Posiłek wykonany, produkty zostały odjęte z lodówki"),
+                                  content: Text(
+                                    "Posiłek wykonany, produkty zostały odjęte z lodówki",
+                                  ),
                                 ),
                               );
                               //ref.invalidate(allProductsProvider);
                             }
                           } catch (e) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    "Nie masz wystarczająco składników w lodówce"),
-                                  ),
-                                );
-                            }
-                          },
-                        child: Text("Zrób posiłek", style: TextStyle(color: Theme.of(context).colorScheme.onPrimary, fontSize: 18)),
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Nie masz wystarczająco składników w lodówce",
+                                ),
+                              ),
+                            );
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size(200, 60),
-                        )
+                        ),
+                        child: Text(
+                          "Zrób posiłek",
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
                     ),
                   ],

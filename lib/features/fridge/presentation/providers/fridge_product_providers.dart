@@ -42,7 +42,7 @@ final addProductUseCaseProvider = Provider<AddProductUseCase>((ref) {
   return AddProductUseCase(repository);
 });
 
-final removeProductUseCaseProvider = Provider<RemoveProductUseCase> ((ref) {
+final removeProductUseCaseProvider = Provider<RemoveProductUseCase>((ref) {
   final repository = ref.watch(fridgeProductRepositoryProvider);
   return RemoveProductUseCase(repository);
 });

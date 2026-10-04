@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:moja_lodowka_app/features/fridge/presentation/screens/fridge_home_screen.dart";
+import "package:moja_lodowka_app/features/fridge/presentation/widgets/fridge_remove_product_dialog.dart";
 
-import "../../features/fridge/presentation/screens/fridge_add_product_screen.dart";
+import "../../features/fridge/presentation/widgets/fridge_new_product_dialog.dart";
+import "../../features/fridge/presentation/widgets/fridge_add_product_dialog.dart";
 import "../../features/recipes/presentation/screens/home_screen.dart";
 import "../../features/recipes/presentation/screens/recipe_details_screen.dart";
 import "../../features/recipes/presentation/screens/recipe_home_screen.dart";
@@ -46,10 +48,6 @@ final goRouter = GoRouter(
               path: Routes.fridge,
               builder: (context, state) => FridgeHomeScreen(),
               routes: [
-                GoRoute(
-                  path: FridgeAddProductScreen.route,
-                  builder: (context, state) => const FridgeAddProductScreen(),
-                ),
               ],
             ),
           ],
