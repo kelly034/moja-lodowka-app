@@ -1,4 +1,3 @@
-import '../../../recipes/domain/entities/recipe.dart';
 import '../../../recipes/domain/repositories/recipes_repository.dart';
 import '../entities/fridge_product.dart';
 import '../repositories/fridge_product_repository.dart';

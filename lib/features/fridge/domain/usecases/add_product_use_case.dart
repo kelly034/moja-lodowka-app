@@ -1,4 +1,3 @@
-import '../entities/fridge_product.dart';
 import '../repositories/fridge_product_repository.dart';
 
 class AddProductUseCase {

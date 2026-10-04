@@ -1,13 +1,10 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
-import "package:moja_lodowka_app/features/fridge/presentation/screens/fridge_home_screen.dart";
-import "package:moja_lodowka_app/features/fridge/presentation/widgets/fridge_remove_product_dialog.dart";
+import "package:moja_lodowka_app/features/fridge/presentation/screens/fridge_screen.dart";
 
-import "../../features/fridge/presentation/widgets/fridge_new_product_dialog.dart";
-import "../../features/fridge/presentation/widgets/fridge_add_product_dialog.dart";
-import "../../features/recipes/presentation/screens/home_screen.dart";
+import "../presentation/widgets/main_layout.dart";
 import "../../features/recipes/presentation/screens/recipe_details_screen.dart";
-import "../../features/recipes/presentation/screens/recipe_home_screen.dart";
+import "../../features/recipes/presentation/screens/recipe_screen.dart";
 import "../../features/recipes/presentation/widgets/animations/recipes_animation.dart";
 import "routes.dart";
 
@@ -17,9 +14,15 @@ final goRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: Routes.recipes,
   routes: [
-    StatefulShellRoute.indexedStack(
+    StatefulShellRoute(
       builder: (context, state, navigationShell) {
-        return HomeScreen(navigationShell: navigationShell);
+          return navigationShell;
+      },
+      navigatorContainerBuilder: (context, navigationShell, children) {
+        return MainLayout(
+          navigationShell: navigationShell,
+          children: children,
+        );
       },
       branches: [
         StatefulShellBranch(

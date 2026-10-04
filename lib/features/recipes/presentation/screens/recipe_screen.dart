@@ -11,6 +11,16 @@ class RecipeHome extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final recipesAsync = ref.watch(recipesProvider);
     return Scaffold(
+        appBar: AppBar(
+          //backgroundColor: Theme.of(context).colorScheme.primary,
+          title: Text(
+            "Moje przepisy",
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       //backgroundColor: Theme.of(context).colorScheme.onPrimary,
       body: recipesAsync.when(
         data: (recipes) => ListView(

@@ -13,16 +13,14 @@ class RecipeDetailsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final recipeId = int.parse(id); // bo go_router przekazuje url string
+    final recipeId = int.parse(id);
     final recipeAsync = ref.watch(recipeByIdProvider(recipeId));
     final recipeProductsAsync = ref.watch(recipeProductsProvider(recipeId));
     final makeMeal = ref.watch(makeMealUseCaseProvider);
     return recipeAsync.when(
       data: (recipe) {
         return Scaffold(
-          //backgroundColor: Theme.of(context).colorScheme.onPrimary,
           appBar: AppBar(
-            //backgroundColor: Theme.of(context).colorScheme.primary,
             title: Text(
               recipe!.name,
               style: TextStyle(
@@ -81,7 +79,6 @@ class RecipeDetailsScreen extends ConsumerWidget {
                   padding: const EdgeInsets.all(16),
                   child: Card(
                     elevation: 4,
-                    //color: Theme.of(context).colorScheme.primary,
                     child: Column(
                       children: [
                         Padding(
@@ -190,6 +187,7 @@ class RecipeDetailsScreen extends ConsumerWidget {
                         onPressed: () async {
                           try {
                             await makeMeal.call(recipe);
+                            openInBrowser(recipe.recipeUrl);
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(

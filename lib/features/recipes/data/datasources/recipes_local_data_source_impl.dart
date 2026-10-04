@@ -3,7 +3,6 @@ import 'package:moja_lodowka_app/features/recipes/data/datasources/recipes_local
 
 import '../../../../core/database/app_database.dart';
 import '../../data/models/recipe_model.dart';
-import '../../data/tables/recipe_table.dart';
 
 class RecipesLocalDataSourceImpl implements RecipesLocalDataSource {
   final AppDatabase db;

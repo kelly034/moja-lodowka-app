@@ -3,7 +3,6 @@ import 'package:moja_lodowka_app/features/fridge/domain/usecases/get_recipe_prod
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../core/providers/database_provider.dart';
-import '../../../recipes/domain/entities/recipe.dart';
 import '../../../recipes/presentation/providers/recipes_providers.dart';
 import '../../data/datasources/fridge_product_data_source.dart';
 import '../../data/datasources/fridge_product_data_source_impl.dart';

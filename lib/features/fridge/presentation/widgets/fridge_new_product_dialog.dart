@@ -99,6 +99,7 @@ class FridgeNewProductDialog extends HookConsumerWidget {
                     decoration: InputDecoration(
                       labelText: "Ilość",
                       labelStyle: TextStyle(color: colors.onPrimary),
+                      suffix: Text(selectedProduct.value?.unit ?? "", style: TextStyle(color: colors.onPrimary)),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: colors.onPrimary),
                         borderRadius: BorderRadius.circular(8),
