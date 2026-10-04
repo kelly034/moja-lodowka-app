@@ -12,7 +12,7 @@ class GetAvailableRecipesUseCase {
 
   Future<List<Recipe>> call() async {
     final recipes = await recipesRepository.getAllRecipes();
-    final fridgeProducts = await fridgeProductRepository.getAllProducts();
+    final fridgeProducts = await fridgeProductRepository.getAllProducts().first;
 
     final fridgeMap = {
       for (final product in fridgeProducts) product.name: product.value,

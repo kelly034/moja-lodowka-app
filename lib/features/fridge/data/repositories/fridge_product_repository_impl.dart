@@ -8,8 +8,8 @@ class FridgeProductRepositoryImpl implements FridgeProductRepository {
   FridgeProductRepositoryImpl(this.localDataSource);
 
   @override
-  Future<List<FridgeProduct>> getAllProducts() async {
-    return await localDataSource.getAllProducts();
+  Stream<List<FridgeProduct>> getAllProducts() {
+    return localDataSource.getAllProducts();
   }
 
   @override

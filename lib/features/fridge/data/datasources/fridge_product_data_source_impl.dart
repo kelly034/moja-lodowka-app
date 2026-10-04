@@ -10,9 +10,10 @@ class FridgeProductDataSourceImpl implements FridgeProductDataSource {
   FridgeProductDataSourceImpl(this.db);
 
   @override
-  Future<List<FridgeProductModel>> getAllProducts() async {
-    final rows = await db.select(db.fridgeProductsTable).get();
-    return rows.map((row) => FridgeProductModel.fromDrift(row)).toList();
+  Stream<List<FridgeProductModel>> getAllProducts() {
+    return db.select(db.fridgeProductsTable).watch().map((rows) {
+      return rows.map((row) => FridgeProductModel.fromDrift(row)).toList();
+    });
   }
 
   @override

@@ -92,11 +92,11 @@ final class AllProductsProvider
         $FunctionalProvider<
           AsyncValue<List<FridgeProduct>>,
           List<FridgeProduct>,
-          FutureOr<List<FridgeProduct>>
+          Stream<List<FridgeProduct>>
         >
     with
         $FutureModifier<List<FridgeProduct>>,
-        $FutureProvider<List<FridgeProduct>> {
+        $StreamProvider<List<FridgeProduct>> {
   AllProductsProvider._()
     : super(
         from: null,
@@ -113,14 +113,14 @@ final class AllProductsProvider
 
   @$internal
   @override
-  $FutureProviderElement<List<FridgeProduct>> $createElement(
+  $StreamProviderElement<List<FridgeProduct>> $createElement(
     $ProviderPointer pointer,
-  ) => $FutureProviderElement(pointer);
+  ) => $StreamProviderElement(pointer);
 
   @override
-  FutureOr<List<FridgeProduct>> create(Ref ref) {
+  Stream<List<FridgeProduct>> create(Ref ref) {
     return allProducts(ref);
   }
 }
 
-String _$allProductsHash() => r'49eed7435ad3a491613141858168124d318d3431';
+String _$allProductsHash() => r'b606f6908304979666e1c6d812cf3b25273836df';

@@ -5,7 +5,7 @@ class GetAllProductsUseCase {
   final FridgeProductRepository repository;
   GetAllProductsUseCase(this.repository);
 
-  Future<List<FridgeProduct>> call() async {
-    return await repository.getAllProducts();
+  Stream<List<FridgeProduct>> call() {
+    return repository.getAllProducts();
   }
 }
