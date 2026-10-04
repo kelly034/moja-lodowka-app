@@ -62,3 +62,9 @@ Future<FridgeProduct> productByName(Ref ref, String name) {
   final getProductByNameUseCase = ref.watch(getProductByNameUseCaseProvider);
   return getProductByNameUseCase.call(name);
 }
+
+@riverpod
+Future<List<FridgeProduct>> allProducts(Ref ref) {
+  final getAllProductsUseCase = ref.watch(getAllProductsUseCaseProvider);
+  return getAllProductsUseCase.call();
+}
