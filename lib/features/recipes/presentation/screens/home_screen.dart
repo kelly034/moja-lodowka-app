@@ -14,6 +14,7 @@ class HomeScreen extends ConsumerWidget {
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: NavigationBar(
+        selectedIndex: navigationShell.currentIndex,
         destinations: [
           NavigationDestination(
             icon: Icon(Icons.restaurant),

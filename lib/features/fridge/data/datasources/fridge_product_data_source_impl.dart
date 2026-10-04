@@ -34,21 +34,26 @@ class FridgeProductDataSourceImpl implements FridgeProductDataSource {
   @override
   Future<void> makeMeal(Recipe recipe) async {
     await db.transaction(() async {
-      final existingProducts = await (db.select(db.fridgeProductsTable)..where((tbl) => tbl.name.isIn(recipe.ingredientNames))).get();
+      final existingProducts = await (db.select(
+        db.fridgeProductsTable,
+      )..where((tbl) => tbl.name.isIn(recipe.ingredientNames))).get();
       await db.batch((batch) {
-        final productMap = {for(var p in existingProducts) p.name: p};
+        final productMap = {for (var p in existingProducts) p.name: p};
 
-        for(int i = 0; i < recipe.ingredientNames.length; i++) {
+        for (int i = 0; i < recipe.ingredientNames.length; i++) {
           final name = recipe.ingredientNames[i];
           final value = recipe.ingredientValues[i];
           final current = productMap[name];
 
-          if(current != null) {
-            batch.update(db.fridgeProductsTable, FridgeProductsTableCompanion(
-              id: Value(current.id),
-              value: Value(current.value - value),
-            ),
-            where: (tbl) => tbl.id.equals(current.id));
+          if (current != null) {
+            batch.update(
+              db.fridgeProductsTable,
+              FridgeProductsTableCompanion(
+                id: Value(current.id),
+                value: Value(current.value - value),
+              ),
+              where: (tbl) => tbl.id.equals(current.id),
+            );
           }
         }
       });
@@ -57,10 +62,9 @@ class FridgeProductDataSourceImpl implements FridgeProductDataSource {
 
   @override
   Future<FridgeProductModel> getProductByName(String name) async {
-    final row = await (db
-        .select(db.fridgeProductsTable)
-        ..where((tbl) => tbl.name.equals(name)))
-        .getSingle();
+    final row = await (db.select(
+      db.fridgeProductsTable,
+    )..where((tbl) => tbl.name.equals(name))).getSingle();
 
     return FridgeProductModel.fromDrift(row);
   }

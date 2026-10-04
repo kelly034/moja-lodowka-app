@@ -90,9 +90,10 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                 i++
                               )
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                  child:
-                                  Text(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 8.0,
+                                  ),
+                                  child: Text(
                                     "• ${recipe.ingredientNames[i]}: ${recipe.ingredientValues[i] % 1 == 0 ? recipe.ingredientValues[i].toInt() : recipe.ingredientValues[i]}",
                                     style: TextStyle(
                                       color: Theme.of(context)

@@ -39,7 +39,9 @@ final makeMealUseCaseProvider = Provider<MakeMealUseCase>((ref) {
   return MakeMealUseCase(repository);
 });
 
-final getProductByNameUseCaseProvider = Provider<GetProductByNameUseCase>((ref) {
+final getProductByNameUseCaseProvider = Provider<GetProductByNameUseCase>((
+  ref,
+) {
   final repository = ref.watch(fridgeProductRepositoryProvider);
   return GetProductByNameUseCase(repository);
 });
