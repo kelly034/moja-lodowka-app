@@ -24,11 +24,7 @@ class FridgeProductDataSourceImpl implements FridgeProductDataSource {
 
     await db
         .update(db.fridgeProductsTable)
-        .replace(
-          currentItem.copyWith(
-            value: currentItem.value + value,
-          )
-        );
+        .replace(currentItem.copyWith(value: currentItem.value + value));
   }
 
   @override
