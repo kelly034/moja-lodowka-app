@@ -1,58 +1,54 @@
 import "package:flutter/material.dart";
 
-TextTheme globalTextTheme(bool isPortrait) {
-  return TextTheme(
-    labelMedium: TextStyle(
-      fontSize: isPortrait ? 20 : 25,
-      fontWeight: FontWeight.bold,
-      color: Colors.white,
-    ),
-    bodySmall: const TextStyle(fontSize: 15),
-    titleMedium: const TextStyle(
-      fontSize: 25,
-      fontWeight: FontWeight.w500,
-      height: 1.2,
-    ),
-    bodyMedium: const TextStyle(fontSize: 20),
-  );
-}
-
-class AppThemes {
-  AppThemes._();
-
-  static const Color _seedColor = Colors.pink;
-
-  static ThemeData lightTheme() {
+class AppTheme {
+  static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(seedColor: _seedColor),
-      textTheme: globalTextTheme(true),
+      scaffoldBackgroundColor: Colors.grey[100],
       appBarTheme: AppBarTheme(
-        backgroundColor: Colors.pink[600],
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.deepPurple[300],
+        foregroundColor: Colors.grey[100],
+        centerTitle: true,
+        surfaceTintColor: Colors.transparent,
+        scrolledUnderElevation: 0,
       ),
-      cardTheme: CardThemeData(color: Colors.pink[600]),
+      cardTheme: CardThemeData(
+        color: Colors.deepPurple[300],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+      colorScheme: ColorScheme.light(
+        primary: Colors.deepPurple[300]!,
+        onPrimary: Colors.grey[100]!,
+        secondaryContainer: Colors.deepPurple[100],
+        onSecondaryContainer: Colors.deepPurple[900],
+        surface: Colors.grey[100]!,
+      ),
     );
   }
 
-  static ThemeData darkTheme(Orientation orientation) {
-    final isPortrait = orientation == Orientation.portrait;
+  static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.black,
-        brightness: Brightness.dark,
-        surfaceTint: Colors.black,
-        surface: Colors.grey,
-        onSurface: Colors.white,
+      scaffoldBackgroundColor: Colors.grey[900],
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.grey[850],
+        foregroundColor: Colors.grey[100],
+        centerTitle: true,
+        surfaceTintColor: Colors.transparent,
+        scrolledUnderElevation: 0,
       ),
-      scaffoldBackgroundColor: Colors.black,
-      textTheme: globalTextTheme(isPortrait),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white10,
-        foregroundColor: Colors.white,
+      cardTheme: CardThemeData(
+        color: Colors.grey[850],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        shadowColor: Colors.grey[500],
       ),
-      cardTheme: const CardThemeData(color: Colors.white10),
+      colorScheme: ColorScheme.dark(
+        primary: Colors.deepPurple[200]!,
+        onPrimary: Colors.grey[100]!,
+        secondaryContainer: Colors.deepPurple[800],
+        onSecondaryContainer: Colors.grey[100],
+        surface: Colors.grey[900]!,
+      ),
     );
   }
 }

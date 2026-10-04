@@ -65,7 +65,9 @@ class AppDatabase extends _$AppDatabase {
         final ingredientNames = List<String>.from(
           item["ingredientNames"] ?? [],
         );
-        final ingredientValues = List<double>.from(item["ingredientValues"] ?? []);
+        final ingredientValues = List<double>.from(
+          item["ingredientValues"] ?? [],
+        );
         for (int i = 0; i < ingredientNames.length; i++) {
           await into(recipeIngredientsTable).insert(
             RecipeIngredientsTableCompanion.insert(
@@ -84,33 +86,31 @@ class AppDatabase extends _$AppDatabase {
         }
       }
     });
-    final productNames = await rootBundle.loadString(
-      "assets/products.json",
-    );
+    final productNames = await rootBundle.loadString("assets/products.json");
 
     final companions = productNames
         .split("\n")
         .map((line) => line.trim())
         .where((line) => line.isNotEmpty)
         .map((line) {
-      final lastSpaceIndex = line.lastIndexOf(" ");
-      if (lastSpaceIndex == -1) {
-        return FridgeProductsTableCompanion.insert(
-          name: line,
-          value: 0.0,
-          unit: "szt",
-        );
-      }
+          final lastSpaceIndex = line.lastIndexOf(" ");
+          if (lastSpaceIndex == -1) {
+            return FridgeProductsTableCompanion.insert(
+              name: line,
+              value: 0.0,
+              unit: "szt",
+            );
+          }
 
-      final name = line.substring(0, lastSpaceIndex).trim();
-      final unit = line.substring(lastSpaceIndex + 1).trim();
+          final name = line.substring(0, lastSpaceIndex).trim();
+          final unit = line.substring(lastSpaceIndex + 1).trim();
 
-      return FridgeProductsTableCompanion.insert(
-        name: name,
-        value: 0.0,
-        unit: unit,
-      );
-    })
+          return FridgeProductsTableCompanion.insert(
+            name: name,
+            value: 0.0,
+            unit: unit,
+          );
+        })
         .toList();
 
     await batch((batch) {

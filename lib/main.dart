@@ -15,7 +15,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
       themeMode: ThemeMode.light,
-      theme: AppThemes.lightTheme(),
+      theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       routerConfig: goRouter,
     );

@@ -6,7 +6,7 @@ import "../providers/recipes_providers.dart";
 
 class RecipeDetailsScreen extends ConsumerWidget {
   final String id;
-  static const route = "/details";
+  static const route = "details";
   const RecipeDetailsScreen({super.key, required this.id});
 
   @override
@@ -70,6 +70,7 @@ class RecipeDetailsScreen extends ConsumerWidget {
                         Padding(
                           padding: const EdgeInsets.all(16),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(
                                 "Składniki",
@@ -80,17 +81,27 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                       .colorScheme
                                       .onPrimary,
                                 ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                "lista składników",
-                                style: TextStyle(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onPrimary,
-                                ),
                                 textAlign: TextAlign.center,
                               ),
+                              const SizedBox(height: 8),
+                              for (
+                                int i = 0;
+                                i < recipe.ingredientNames.length;
+                                i++
+                              )
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                  child:
+                                  Text(
+                                    "• ${recipe.ingredientNames[i]}: ${recipe.ingredientValues[i] % 1 == 0 ? recipe.ingredientValues[i].toInt() : recipe.ingredientValues[i]}",
+                                    style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
                             ],
                           ),
                         ),

@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 
+import "../../../../core/routing/routes.dart";
 import "../../domain/entities/recipe.dart";
 import "../screens/recipe_details_screen.dart";
 
@@ -19,7 +20,9 @@ class RecipeCard extends StatelessWidget {
         //color: Theme.of(context).colorScheme.primary,
         child: InkWell(
           onTap: () async {
-            await context.push("${RecipeDetailsScreen.route}/${recipe.id}");
+            await context.push(
+              "${Routes.recipes}/${RecipeDetailsScreen.route}/${recipe.id}",
+            );
           },
           child: Column(
             children: [
@@ -27,14 +30,6 @@ class RecipeCard extends StatelessWidget {
                 children: [
                   Hero(
                     tag: recipe.id,
-                    placeholderBuilder: (context, size, child) {
-                      return Image.network(
-                        recipe.imageUrl,
-                        height: 200,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      );
-                    },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Image.network(
