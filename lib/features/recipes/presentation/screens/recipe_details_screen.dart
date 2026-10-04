@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:go_router/go_router.dart";
 
+import "../../../fridge/presentation/providers/fridge_product_providers.dart";
 import "../providers/recipes_providers.dart";
 
 class RecipeDetailsScreen extends ConsumerWidget {
@@ -13,6 +14,8 @@ class RecipeDetailsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final recipeId = int.parse(id); // bo go_router przekazuje url string
     final recipeAsync = ref.watch(recipeByIdProvider(recipeId));
+    final recipeProductsAsync = ref.watch(recipeProductsProvider(recipeId));
+
 
     return recipeAsync.when(
       data: (recipe) {
@@ -84,17 +87,17 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: 8),
-                              for (
+                              ...recipeProductsAsync.when(
+                              data: (products) => [for (
                                 int i = 0;
                                 i < recipe.ingredientNames.length;
                                 i++
                               )
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 8.0,
-                                  ),
-                                  child: Text(
-                                    "• ${recipe.ingredientNames[i]}: ${recipe.ingredientValues[i] % 1 == 0 ? recipe.ingredientValues[i].toInt() : recipe.ingredientValues[i]}",
+                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                  child:
+                                  Text(
+                                    "• ${recipe.ingredientNames[i]}: ${recipe.ingredientValues[i] % 1 == 0 ? recipe.ingredientValues[i].toInt() : recipe.ingredientValues[i]} ${products[i].unit}",
                                     style: TextStyle(
                                       color: Theme.of(context)
                                           .colorScheme
@@ -103,6 +106,17 @@ class RecipeDetailsScreen extends ConsumerWidget {
                                     textAlign: TextAlign.left,
                                   ),
                                 ),
+                              ],
+                                loading: () => [
+                                  const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Center(child: CircularProgressIndicator()),
+                                  ),
+                                ],
+                                error: (error, stack) => [
+                                  Text("Błąd składników: $error"),
+                                ],
+                             ),
                             ],
                           ),
                         ),
