@@ -87,7 +87,9 @@ class AppDatabase extends _$AppDatabase {
       }
     });
 
-    final String productsJsonString = await rootBundle.loadString("assets/products.json");
+    final String productsJsonString = await rootBundle.loadString(
+      "assets/products.json",
+    );
     final Map<String, dynamic> productsMap = jsonDecode(productsJsonString);
 
     final companions = productsMap.entries.map((entry) {

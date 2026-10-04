@@ -53,7 +53,9 @@ final getProductByNameUseCaseProvider = Provider<GetProductByNameUseCase>((
   return GetProductByNameUseCase(repository);
 });
 
-final getRecipeProductsUseCaseProvider = Provider<GetRecipeProductsUseCase>((ref) {
+final getRecipeProductsUseCaseProvider = Provider<GetRecipeProductsUseCase>((
+  ref,
+) {
   final fridgeRepository = ref.watch(fridgeProductRepositoryProvider);
   final recipesRepository = ref.watch(recipesRepositoryProvider);
   return GetRecipeProductsUseCase(fridgeRepository, recipesRepository);

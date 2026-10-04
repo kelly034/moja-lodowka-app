@@ -16,7 +16,6 @@ class RecipeDetailsScreen extends ConsumerWidget {
     final recipeAsync = ref.watch(recipeByIdProvider(recipeId));
     final recipeProductsAsync = ref.watch(recipeProductsProvider(recipeId));
 
-
     return recipeAsync.when(
       data: (recipe) {
         return Scaffold(
@@ -88,35 +87,39 @@ class RecipeDetailsScreen extends ConsumerWidget {
                               ),
                               const SizedBox(height: 8),
                               ...recipeProductsAsync.when(
-                              data: (products) => [for (
-                                int i = 0;
-                                i < recipe.ingredientNames.length;
-                                i++
-                              )
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                  child:
-                                  Text(
-                                    "• ${recipe.ingredientNames[i]}: ${recipe.ingredientValues[i] % 1 == 0 ? recipe.ingredientValues[i].toInt() : recipe.ingredientValues[i]} ${products[i].unit}",
-                                    style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary,
+                                data: (products) => [
+                                  for (
+                                    int i = 0;
+                                    i < recipe.ingredientNames.length;
+                                    i++
+                                  )
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 8.0,
+                                      ),
+                                      child: Text(
+                                        "• ${recipe.ingredientNames[i]}: ${recipe.ingredientValues[i] % 1 == 0 ? recipe.ingredientValues[i].toInt() : recipe.ingredientValues[i]} ${products[i].unit}",
+                                        style: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onPrimary,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      ),
                                     ),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                              ],
+                                ],
                                 loading: () => [
                                   const Padding(
                                     padding: EdgeInsets.all(8.0),
-                                    child: Center(child: CircularProgressIndicator()),
+                                    child: Center(
+                                      child: CircularProgressIndicator(),
+                                    ),
                                   ),
                                 ],
                                 error: (error, stack) => [
                                   Text("Błąd składników: $error"),
                                 ],
-                             ),
+                              ),
                             ],
                           ),
                         ),
