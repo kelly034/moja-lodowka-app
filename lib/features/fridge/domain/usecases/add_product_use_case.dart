@@ -7,7 +7,7 @@ class AddProductUseCase {
 
   Future<void> call(int? id, double? value) async {
     if(id == null) {
-      throw ArgumentError("Nie wybrano produktu.");
+      throw ArgumentError("Niepoprawny produkt.");
     }
 
     if(value == null || value <= 0) {

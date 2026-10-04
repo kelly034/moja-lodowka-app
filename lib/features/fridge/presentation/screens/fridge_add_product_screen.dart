@@ -71,27 +71,23 @@ class FridgeAddProductScreen extends HookConsumerWidget {
               ElevatedButton(
                 onPressed: () async {
                   final amount = double.tryParse(amountController.text) ?? 0.0;
-
-                  if (selectedProduct.value != null && amount > 0) {
-                    await addProduct.call(selectedProduct.value!.id, amount);
-
+                  try {
+                    await addProduct.call(selectedProduct.value?.id, amount);
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text("Dodano produkt")),
                       );
                       ref.invalidate(allProductsProvider);
                       context.pop();
-                    } else {
-                      if (context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              "Wybierz produkt z listy i podaj poprawną ilość",
-                            ),
-                          ),
-                        );
-                      }
                     }
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          e.toString().replaceAll('Invalid argument(s): ', ''),
+                        ),
+                      ),
+                    );
                   }
                 },
                 child: Text("Dodaj"),
