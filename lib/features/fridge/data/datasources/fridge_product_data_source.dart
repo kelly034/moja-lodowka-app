@@ -5,4 +5,5 @@ abstract class FridgeProductDataSource {
   Future<List<FridgeProduct>> getAllProducts();
   Future<void> addProduct(int id, double value);
   Future<void> makeMeal(Recipe recipe);
+  Future<FridgeProduct> getProductByName(String name);
 }

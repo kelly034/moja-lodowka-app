@@ -5,5 +5,7 @@ class GetAllRecipesUseCase {
   final RecipesRepository repository;
   GetAllRecipesUseCase(this.repository);
 
-  Future<List<Recipe>> call() => repository.getAllRecipes();
+  Future<List<Recipe>> call() async {
+    return await repository.getAllRecipes();
+  }
 }

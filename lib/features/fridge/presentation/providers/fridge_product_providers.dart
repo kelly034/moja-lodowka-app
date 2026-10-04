@@ -7,6 +7,7 @@ import '../../data/repositories/fridge_product_repository_impl.dart';
 import '../../domain/repositories/fridge_product_repository.dart';
 import '../../domain/usecases/add_product_use_case.dart';
 import '../../domain/usecases/get_all_products_use_case.dart';
+import '../../domain/usecases/get_product_by_name_use_case.dart';
 import '../../domain/usecases/make_meal_use_case.dart';
 
 final fridgeProductLocalDataSourceProvider = Provider<FridgeProductDataSource>((
@@ -36,4 +37,9 @@ final addProductUseCaseProvider = Provider<AddProductUseCase>((ref) {
 final makeMealUseCaseProvider = Provider<MakeMealUseCase>((ref) {
   final repository = ref.watch(fridgeProductRepositoryProvider);
   return MakeMealUseCase(repository);
+});
+
+final getProductByNameUseCaseProvider = Provider<GetProductByNameUseCase>((ref) {
+  final repository = ref.watch(fridgeProductRepositoryProvider);
+  return GetProductByNameUseCase(repository);
 });

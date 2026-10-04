@@ -5,5 +5,7 @@ class MakeMealUseCase {
   final FridgeProductRepository repository;
   MakeMealUseCase(this.repository);
 
-  Future<void> call(Recipe recipe) => repository.makeMeal(recipe);
+  Future<void> call(Recipe recipe) async {
+    return await repository.makeMeal(recipe);
+  }
 }

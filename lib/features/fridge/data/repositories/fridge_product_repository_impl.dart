@@ -21,4 +21,9 @@ class FridgeProductRepositoryImpl implements FridgeProductRepository {
   Future<void> makeMeal(Recipe recipe) async {
     return await localDataSource.makeMeal(recipe);
   }
+
+  @override
+  Future<FridgeProduct> getProductByName(String name) async {
+    return await localDataSource.getProductByName(name);
+  }
 }

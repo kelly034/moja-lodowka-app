@@ -54,4 +54,14 @@ class FridgeProductDataSourceImpl implements FridgeProductDataSource {
       });
     });
   }
+
+  @override
+  Future<FridgeProductModel> getProductByName(String name) async {
+    final row = await (db
+        .select(db.fridgeProductsTable)
+        ..where((tbl) => tbl.name.equals(name)))
+        .getSingle();
+
+    return FridgeProductModel.fromDrift(row);
+  }
 }
