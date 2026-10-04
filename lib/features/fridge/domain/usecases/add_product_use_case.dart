@@ -5,7 +5,15 @@ class AddProductUseCase {
   final FridgeProductRepository repository;
   AddProductUseCase(this.repository);
 
-  Future<void> call(int id, double value) async {
+  Future<void> call(int? id, double? value) async {
+    if(id == null) {
+      throw ArgumentError("Nie wybrano produktu.");
+    }
+
+    if(value == null || value <= 0) {
+      throw ArgumentError("Niepoprawna ilość produktu.");
+    }
+
     return await repository.addProduct(id, value);
   }
 }
