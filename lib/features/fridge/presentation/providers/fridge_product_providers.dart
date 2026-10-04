@@ -14,6 +14,7 @@ import '../../domain/usecases/add_product_use_case.dart';
 import '../../domain/usecases/get_all_products_use_case.dart';
 import '../../domain/usecases/get_product_by_name_use_case.dart';
 import '../../domain/usecases/make_meal_use_case.dart';
+import '../../domain/usecases/remove_product_use_case.dart';
 
 part "fridge_product_providers.g.dart";
 
@@ -39,6 +40,11 @@ final getAllProductsUseCaseProvider = Provider<GetAllProductsUseCase>((ref) {
 final addProductUseCaseProvider = Provider<AddProductUseCase>((ref) {
   final repository = ref.watch(fridgeProductRepositoryProvider);
   return AddProductUseCase(repository);
+});
+
+final removeProductUseCaseProvider = Provider<RemoveProductUseCase> ((ref) {
+  final repository = ref.watch(fridgeProductRepositoryProvider);
+  return RemoveProductUseCase(repository);
 });
 
 final makeMealUseCaseProvider = Provider<MakeMealUseCase>((ref) {

@@ -64,4 +64,24 @@ class FridgeProductDataSourceImpl implements FridgeProductDataSource {
 
     return FridgeProductModel.fromDrift(row);
   }
+
+  @override
+  Future<void> removeProduct(int id, double value) async {
+    final currentItem = await (db.select(
+      db.fridgeProductsTable,
+    )..where((tbl) => tbl.id.equals(id))).getSingle();
+
+    await db
+        .update(db.fridgeProductsTable)
+        .replace(currentItem.copyWith(value: currentItem.value - value));
+  }
+
+  @override
+  Future<FridgeProductModel> getProductById(int id) async {
+    final row = await (db.select(
+      db.fridgeProductsTable,
+    )..where((tbl) => tbl.id.equals(id))).getSingle();
+
+    return FridgeProductModel.fromDrift(row);
+  }
 }

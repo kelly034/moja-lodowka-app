@@ -26,4 +26,14 @@ class FridgeProductRepositoryImpl implements FridgeProductRepository {
   Future<FridgeProduct> getProductByName(String name) async {
     return await localDataSource.getProductByName(name);
   }
+
+  @override
+  Future<void> removeProduct(int id, double value) async {
+    return await localDataSource.removeProduct(id, value);
+  }
+
+  @override
+  Future<FridgeProduct> getProductById(int id) async {
+    return await localDataSource.getProductById(id);
+  }
 }
