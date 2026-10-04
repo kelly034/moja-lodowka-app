@@ -83,3 +83,44 @@ final class ProductByNameFamily extends $Family
   @override
   String toString() => r'productByNameProvider';
 }
+
+@ProviderFor(allProducts)
+final allProductsProvider = AllProductsProvider._();
+
+final class AllProductsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<FridgeProduct>>,
+          List<FridgeProduct>,
+          FutureOr<List<FridgeProduct>>
+        >
+    with
+        $FutureModifier<List<FridgeProduct>>,
+        $FutureProvider<List<FridgeProduct>> {
+  AllProductsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'allProductsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$allProductsHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<FridgeProduct>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<FridgeProduct>> create(Ref ref) {
+    return allProducts(ref);
+  }
+}
+
+String _$allProductsHash() => r'49eed7435ad3a491613141858168124d318d3431';

@@ -38,7 +38,7 @@ class FridgeAddProductScreen extends ConsumerWidget {
               },
             ),
           ),
-          ElevatedButton(onPressed: () {addProduct.call(id, value)}, child: Text("Dodaj"))
+          //ElevatedButton(onPressed: () {addProduct.call(id, value)}, child: Text("Dodaj"))
         ],
 
       ),
