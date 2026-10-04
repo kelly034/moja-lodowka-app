@@ -4,6 +4,8 @@ import "package:riverpod_annotation/riverpod_annotation.dart";
 import '../../../../core/database/app_database.dart';
 
 import '../../../../core/providers/database_provider.dart';
+import '../../../fridge/domain/entities/fridge_product.dart';
+import '../../../fridge/presentation/providers/fridge_product_providers.dart';
 import '../../data/datasources/recipes_local_data_source.dart';
 import '../../data/datasources/recipes_local_data_source_impl.dart';
 import '../../data/repositories/recipes_repository_impl.dart';
@@ -44,4 +46,10 @@ Future<List<Recipe>> recipes(Ref ref) async {
 Future<Recipe?> recipeById(Ref ref, int id) async {
   final getRecipeByIdUseCase = ref.watch(getRecipeByIdUseCaseProvider);
   return await getRecipeByIdUseCase.call(id);
+}
+
+@riverpod
+Future<List<FridgeProduct>> recipeProducts(Ref ref, int id) {
+  final getRecipeProductsUseCase = ref.watch(getRecipeProductsUseCaseProvider);
+  return getRecipeProductsUseCase.call(id);
 }

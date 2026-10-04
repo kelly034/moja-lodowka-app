@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:go_router/go_router.dart";
 
+import "../../../fridge/presentation/providers/fridge_product_providers.dart";
 import "../providers/recipes_providers.dart";
 
 class RecipeDetailsScreen extends ConsumerWidget {
@@ -13,6 +14,8 @@ class RecipeDetailsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final recipeId = int.parse(id); // bo go_router przekazuje url string
     final recipeAsync = ref.watch(recipeByIdProvider(recipeId));
+    final recipeProductsAsync = ref.watch(recipeProductsProvider(recipeId));
+
 
     return recipeAsync.when(
       data: (recipe) {

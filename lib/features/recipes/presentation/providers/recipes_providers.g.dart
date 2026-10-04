@@ -116,3 +116,80 @@ final class RecipeByIdFamily extends $Family
   @override
   String toString() => r'recipeByIdProvider';
 }
+
+@ProviderFor(recipeProducts)
+final recipeProductsProvider = RecipeProductsFamily._();
+
+final class RecipeProductsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<FridgeProduct>>,
+          List<FridgeProduct>,
+          FutureOr<List<FridgeProduct>>
+        >
+    with
+        $FutureModifier<List<FridgeProduct>>,
+        $FutureProvider<List<FridgeProduct>> {
+  RecipeProductsProvider._({
+    required RecipeProductsFamily super.from,
+    required int super.argument,
+  }) : super(
+         retry: null,
+         name: r'recipeProductsProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$recipeProductsHash();
+
+  @override
+  String toString() {
+    return r'recipeProductsProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<FridgeProduct>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<FridgeProduct>> create(Ref ref) {
+    final argument = this.argument as int;
+    return recipeProducts(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is RecipeProductsProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$recipeProductsHash() => r'e3271dd33f7337d1d5b3d5c6f4c44234003f7c32';
+
+final class RecipeProductsFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<FridgeProduct>>, int> {
+  RecipeProductsFamily._()
+    : super(
+        retry: null,
+        name: r'recipeProductsProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  RecipeProductsProvider call(int id) =>
+      RecipeProductsProvider._(argument: id, from: this);
+
+  @override
+  String toString() => r'recipeProductsProvider';
+}
