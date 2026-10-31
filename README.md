@@ -1,5 +1,7 @@
 # Moja Lodówka
 
+[Film prezentujący aplikację](https://drive.google.com/file/d/1uP2jJmverncapE01lp0aoIUughvmjVt3/view?usp=sharing)
+
 W życiu studenckim (i nie tylko) ważne jest to, aby zadbać o zdrową i bogatą dietę. Często jednak nie mamy pomysłu na danie, nie chce nam się myśleć ani robić zakupów. Z pomocą przychodzi nasza aplikacja, w której użytkownik będzie mógł:
 zapisywać ilości i terminy ważności poszczególnych produktów w lodówce: poprzez skanowanie kodów kreskowych kupowanych produktów lub ich ręczne wprowadzanie
 dostawać powiadomienia o zbliżającym się terminie ważnosci produktów
